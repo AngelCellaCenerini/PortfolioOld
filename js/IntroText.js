@@ -37,16 +37,28 @@ class IntroText {
 
   reveal(){
     this.opacity = this.opacity + this.transparency;
-    // if (this.opacity >= 255){
-    //   this.transparency = 0;
-    // }
+    if (this.opacity >= 255){
+      this.transparency = 0;
+    }
+  }
+
+  reset(){
+    // Deactivate
+    this.active = false;
+    // Reset Position
+    this.x = width/2;
+    this.y = height/2 + 70;
+    // Reset opacity
+    this.opacity = 0;
+    // Reset Values
+    this.speed = 2;
+    this.acceleration = 0.08;
+    this.transparency = 10;
+
   }
 
   display(){
     push();
-    // // Text Box
-    // fill(254, 253, 249);
-    // rect(this.x, this.y, 600, 100);
     // Text
     fill(42, 42, 42, this.opacity);
     textSize(18);

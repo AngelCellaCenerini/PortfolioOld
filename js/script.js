@@ -75,7 +75,7 @@ function setup() {
 
   // Intro Text
   x = width/2;
-  y = height/2 + 100;
+  y = height/2 + 70;
   introText = new IntroText(x, y);
 
   // Logo/Button
@@ -98,7 +98,7 @@ function draw() {
     logoButton.update(introText);
 
     // Uncover Effect
-    uncoverEffect.update();
+    uncoverEffect.update(logoButton);
     // Intro Text
     introText.update();
 
@@ -131,17 +131,6 @@ function draw() {
 
 }
 
-// function displayBlock(){
-//   push();
-//   fill(254, 0, 249);
-//   uncoverEffect.x = width/2;
-//   uncoverEffect.y = height/2;
-//   rect(uncoverEffect.x, uncoverEffect.y, uncoverEffect.width);
-//   pop();
-// }
-//
-// function moveDownwards(){
-//   // Move Downwards
-//   uncoverEffect.y += uncoverEffect.vy;
-//   // uncoverEffect.vy = uncoverEffect.speed;
-// }
+function mousePressed() {
+  logoButton.update();
+}

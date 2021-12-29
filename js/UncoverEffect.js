@@ -4,18 +4,18 @@ class UncoverEffect {
     this.y = y;
     this.x2 = x2;
     this.y2 = y2;
-    this.width = 300;
+    this.width = 250;
     this.vx = 0;
     this.vy = 0;
     this.speed = 0;
     this.speed2 = 0;
-    this.acceleration = 0.3;
+    this.acceleration = 0.2;
   }
 
-  update(){
+  update(logoButton){
     this.display();
     this.move();
-    this.stop();
+    this.stop(logoButton);
   }
 
   move(){
@@ -26,9 +26,10 @@ class UncoverEffect {
     this.speed = this.speed + this.acceleration;
   }
 
-  stop(){
-    if(this.y > 3*width/2){
+  stop(logoButton){
+    if(this.y > 3*height/2){
       this.acceleration = 0;
+      logoButton.active = true;
     }
   }
 

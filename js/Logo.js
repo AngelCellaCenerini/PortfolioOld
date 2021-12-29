@@ -3,16 +3,17 @@ class Logo{
     this.x = x;
     this.y = y;
     this.image = image;
-    this.width = 257;
-    this.height = 223;
+    this.width = 204;
+    this.height = 180;
     this.vx = 0;
     this.vy = 0;
     this.speed = 2.5;
     this.acceleration = 0.08;
     this.growth = 0.8;
-    this.maxWidth = 265;
-    this.originalWidth = 257;
-    this.originalHeight = 223;
+    this.maxWidth = 220;
+    this.originalWidth = 204;
+    this.originalHeight = 180;
+    this.active = false;
     this.hovered = false;
   }
 
@@ -24,17 +25,26 @@ class Logo{
   }
 
   interact(introText){
-    let d = dist(this.x, this.y, mouseX, mouseY);
-    if (d < this.width/2){
-      this.hovered = true;
-      introText.active = true;
-    }
-    else{
-      // Deactivate Status
-      this.hovered = false;
-      introText.active = false;
-      // Reset Size and Position
-      this.reset();
+    // Check if Active (aka Uncover Effect is over)
+    if (this.active){
+      // User hovers over Logo
+      let d = dist(this.x, this.y, mouseX, mouseY);
+      if (d < this.width/2){
+        this.hovered = true;
+        introText.active = true;
+        // User clicks on logo
+        if (mouseIsPressed){
+          state = `homepage`;
+        }
+      }
+      else{
+        // Deactivate Status
+        this.hovered = false;
+        introText.active = false;
+        // Reset Size and Position
+        this.reset();
+        introText.reset();
+      }
     }
   }
 
