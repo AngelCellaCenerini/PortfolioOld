@@ -11,7 +11,6 @@ author, and this description to match your project!
 // Logo
 let logoButton = undefined;
 let logoImage = undefined;
-let logoIcon = undefined;
 // SheepsIcons
 let gamesSheepImg = undefined;
 let graphicDesignSheepImg = undefined;
@@ -23,17 +22,11 @@ let photographySheepImg = undefined;
 // Uncover Effect
 let uncoverEffect = undefined;
 let introText = undefined;
-// let uncoverEffect = {
-//   x: undefined,
-//   y: undefined,
-//   width: 300,
-//   vx: 0,
-//   vy: 2,
-//   speed: 2
-// };
+// Homepage
+let homepage = undefined;
 
 // States - LogoScreen, Homepage, Games, Graphic Design, Web Design, Video Editing, 3D, Photography
-let state = `logoScreen`;
+let state = `homepage`;
 
 /**
 Description of preload
@@ -42,7 +35,6 @@ function preload() {
 
   // Load PNGs Graphics
   logoImage = loadImage('assets/images/LogoButton.png');
-  logoIcon = loadImage('assets/images/LogoIcon.png');
 
   gamesSheepImg = loadImage('assets/images/LogoButton.png');
   graphicDesignSheepImg = loadImage('assets/images/LogoButton.png');
@@ -70,7 +62,7 @@ function setup() {
 
   // Uncover Effect
   let x = width/2;
-  let y = height/6;
+  let y = height/4;
   uncoverEffect = new UncoverEffect(x, y);
 
   // Intro Text
@@ -82,6 +74,13 @@ function setup() {
   x = width/2;
   y = height/2;
   logoButton = new Logo(x, y, logoImage);
+
+  // Homepage
+  x = width/2;
+  y = height/2 - 50;
+  let x1 = width/2;
+  let y1 = height/2;
+  homepage = new Homepage(x, y, x1, y1);
 
 }
 
@@ -105,6 +104,9 @@ function draw() {
 
   }
   else if(state === `homepage`){
+
+    // Homepage
+    homepage.update();
 
   }
   else if(state === `games`){
