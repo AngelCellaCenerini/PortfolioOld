@@ -9,6 +9,7 @@ author, and this description to match your project!
 */
 // Fonts
 let bigShoulderDisplayFont = undefined;
+let bigShoulderDisplayLighterFont = undefined;
 // Graphics
 // Logo
 let logoButton = undefined;
@@ -58,6 +59,7 @@ function preload() {
 
   // Fonts
   bigShoulderDisplayFont = loadFont('assets/fonts/BigShouldersDisplay-SemiBold.otf');
+  bigShoulderDisplayLighterFont = loadFont('assets/fonts/BigShouldersDisplay-Regular.otf');
 
   // Graphics
   // Logo
@@ -216,4 +218,5 @@ function draw() {
 
 function mousePressed() {
   logoButton.update();
+  burgerMenu.update();
 }
