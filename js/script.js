@@ -7,23 +7,46 @@ Author Name
 This is a template. You must fill in the title,
 author, and this description to match your project!
 */
+// Fonts
+let bigShoulderDisplayFont = undefined;
 // Graphics
 // Logo
 let logoButton = undefined;
 let logoImage = undefined;
-// SheepsIcons
+// Sheeps
+//Icons
 let gamesSheepImg = undefined;
 let graphicDesignSheepImg = undefined;
 let webDesignSheepImg = undefined;
 let triDSheepImg = undefined;
 let editingSheepImg = undefined;
 let photographySheepImg = undefined;
+let artSheepImg = undefined;
+// Animations
+let gamesSheepAni = undefined;
+let graphicDesignSheepAni = undefined;
+let webDesignSheepAni = undefined;
+let triDSheepAni = undefined;
+let editingSheepAni = undefined;
+let photographySheepAni = undefined;
+let artSheepAni = undefined;
+
 
 // Uncover Effect
 let uncoverEffect = undefined;
 let introText = undefined;
 // Homepage
 let homepage = undefined;
+// Sheeps
+let gamesSheep = undefined;
+let graphicDesignSheep = undefined;
+let webDesignSheep = undefined;
+let triDSheep = undefined;
+let editingSheep = undefined;
+let photographySheep = undefined;
+let artSheep = undefined;
+// Burger Menu
+let burgerMenu = undefined;
 
 // States - LogoScreen, Homepage, Games, Graphic Design, Web Design, Video Editing, 3D, Photography
 let state = `homepage`;
@@ -33,16 +56,31 @@ Description of preload
 */
 function preload() {
 
-  // Load PNGs Graphics
+  // Fonts
+  bigShoulderDisplayFont = loadFont('assets/fonts/BigShouldersDisplay-SemiBold.otf');
+
+  // Graphics
+  // Logo
   logoImage = loadImage('assets/images/LogoButton.png');
 
-  gamesSheepImg = loadImage('assets/images/LogoButton.png');
-  graphicDesignSheepImg = loadImage('assets/images/LogoButton.png');
-  webDesignSheepImg = loadImage('assets/images/LogoButton.png');
-  triDSheepImg = loadImage('assets/images/LogoButton.png');
-  editingSheepImg = loadImage('assets/images/LogoButton.png');
-  photographySheepImg = loadImage('assets/images/LogoButton.png');
+  // Sheeps
+  // Icons
+  gamesSheepImg = loadImage('assets/images/games.png');
+  graphicDesignSheepImg = loadImage('assets/images/design.png');
+  webDesignSheepImg = loadImage('assets/images/webdesign.png');
+  triDSheepImg = loadImage('assets/images/3d.png');
+  editingSheepImg = loadImage('assets/images/editing.png');
+  photographySheepImg = loadImage('assets/images/photography.png');
+  artSheepImg = loadImage('assets/images/art.png');
 
+  // Animations
+  gamesSheepAni = loadImage('assets/images/LogoButton.png');
+  graphicDesignSheepAni = loadImage('assets/images/LogoButton.png');
+  webDesignSheepAni = loadImage('assets/images/LogoButton.png');
+  triDSheepAni = loadImage('assets/images/LogoButton.png');
+  editingSheepAni = loadImage('assets/images/LogoButton.png');
+  photographySheepAni = loadImage('assets/images/LogoButton.png');
+  artSheepAni = loadImage('assets/images/LogoButton.png');
 
 }
 
@@ -79,8 +117,39 @@ function setup() {
   x = width/2;
   y = height/2 - 50;
   let x1 = width/2;
-  let y1 = height/2;
+  let y1 = height/2 - 50;
   homepage = new Homepage(x, y, x1, y1);
+
+  // Sheeps
+  // First Row
+  x = width/2 - width/10;
+  y = height/3 - height/20;
+  gamesSheep = new Sheep(x, y, gamesSheepImg, gamesSheepAni, `GAMES`, 0, 27, random(0.5, 1), random(0.7, 1.2));
+  x = width/2;
+  y = height/3 - height/20;
+  webDesignSheep = new Sheep(x, y, webDesignSheepImg, webDesignSheepAni, `WEB DESIGN`, 15, 27, random(0.5, 1), random(0.7, 1.2));
+  // Second Row
+  x = width/2 - width/10;
+  y = height/2;
+  triDSheep = new Sheep(x, y, triDSheepImg, triDSheepAni, `3D`, -5, 27, random(0.5, 1), random(0.7, 1.2));
+  x = width/2;
+  y = height/2;
+  graphicDesignSheep = new Sheep(x, y, graphicDesignSheepImg, graphicDesignSheepAni, `DESIGN`, -5, 27, random(0.5, 1), random(0.7, 1.2));
+  // Third Row
+  x = width/2 + width/10;
+  y = 2*height/3 + height/20;
+  editingSheep = new Sheep(x, y, editingSheepImg, editingSheepAni, `EDITS`, -10, 27, random(0.5, 1), random(0.7, 1.2));
+  x = width/2;
+  y = 2*height/3 + height/20;
+  artSheep = new Sheep(x, y, artSheepImg, artSheepAni, `ART`, -10, 27, random(0.5, 1), random(0.7, 1.2));
+  x = width/2 - width/10;
+  y = 2*height/3 + height/20;
+  photographySheep = new Sheep(x, y, photographySheepImg, photographySheepAni, `PHOTOGRAPHY`, -10, 24, random(0.5, 1), random(0.7, 1.2));
+
+  // Burger Menu
+  x = width/25;
+  y = height/10;
+  burgerMenu = new BurgerMenu(x, y);
 
 }
 
@@ -107,6 +176,18 @@ function draw() {
 
     // Homepage
     homepage.update();
+
+    // Sheeps
+    gamesSheep.update();
+    graphicDesignSheep.update();
+    webDesignSheep.update();
+    triDSheep.update();
+    editingSheep.update();
+    photographySheep.update();
+    artSheep.update();
+
+    // Burger Menu
+    burgerMenu.update();
 
   }
   else if(state === `games`){
