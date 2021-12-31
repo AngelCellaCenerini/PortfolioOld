@@ -48,6 +48,15 @@ let photographySheep = undefined;
 let artSheep = undefined;
 // Burger Menu
 let burgerMenu = undefined;
+// Navigation Bar
+let navigationBarHomepage = undefined;
+let navigationBarGames = undefined;
+let navigationBarWebDesign = undefined;
+let navigationBar3D = undefined;
+let navigationBarDesign = undefined;
+let navigationBarPhotography = undefined;
+let navigationBarArt = undefined;
+let navigationBarEdits = undefined;
 
 // States - LogoScreen, Homepage, Games, Graphic Design, Web Design, Video Editing, 3D, Photography
 let state = `homepage`;
@@ -151,7 +160,17 @@ function setup() {
   // Burger Menu
   x = width/25;
   y = height/10;
-  burgerMenu = new BurgerMenu(x, y);
+  x1 = width/10;
+  y1 = height/4 + 40;
+  let tX1 = width/20;
+  let tY1 = height/7;
+  burgerMenu = new BurgerMenu(x, y, x1, y1, tX1, tY1);
+
+  // Navigation Bar
+  // Games
+  x = width/15;
+  y = height/7;
+  navigationBarGames = new NavigationBar(x, y, `Games`, `games`, `homepage`);
 
 }
 
@@ -190,6 +209,8 @@ function draw() {
 
     // Burger Menu
     burgerMenu.update();
+    // Mavigation Bar
+    navigationBarGames.update();
 
   }
   else if(state === `games`){
@@ -219,4 +240,5 @@ function draw() {
 function mousePressed() {
   logoButton.update();
   burgerMenu.update();
+  navigationBarGames.update();
 }
