@@ -168,9 +168,9 @@ function setup() {
 
   // Navigation Bar
   // Games
-  x = width/15;
+  x = width/16;
   y = height/7;
-  navigationBarGames = new NavigationBar(x, y, `Games`, `games`, `homepage`);
+  navigationBarGames = new NavigationBar(x, y, `Games`, `games`);
 
 }
 
@@ -214,6 +214,12 @@ function draw() {
 
   }
   else if(state === `games`){
+
+
+    push();
+    fill(0, 0 , 255);
+    rect(width/2, height/2, 500);
+    pop();
 
   }
   else if(state === `graphicDesign`){
