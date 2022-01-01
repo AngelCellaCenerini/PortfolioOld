@@ -39,6 +39,7 @@ let introText = undefined;
 // Homepage
 let homepage = undefined;
 // Sheeps
+let sheeps = [];
 let gamesSheep = undefined;
 let graphicDesignSheep = undefined;
 let webDesignSheep = undefined;
@@ -136,41 +137,76 @@ function setup() {
   x = width/2 - width/10;
   y = height/3 - height/20;
   gamesSheep = new Sheep(x, y, gamesSheepImg, gamesSheepAni, `GAMES`, 0, 27, random(0.5, 1), random(0.7, 1.2));
+  sheeps.push(gamesSheep);
   x = width/2;
   y = height/3 - height/20;
   webDesignSheep = new Sheep(x, y, webDesignSheepImg, webDesignSheepAni, `WEB DESIGN`, 15, 27, random(0.5, 1), random(0.7, 1.2));
+  sheeps.push(webDesignSheep);
   // Second Row
   x = width/2 - width/10;
   y = height/2;
   triDSheep = new Sheep(x, y, triDSheepImg, triDSheepAni, `3D`, -5, 27, random(0.5, 1), random(0.7, 1.2));
+  sheeps.push(triDSheep);
   x = width/2;
   y = height/2;
   graphicDesignSheep = new Sheep(x, y, graphicDesignSheepImg, graphicDesignSheepAni, `DESIGN`, -5, 27, random(0.5, 1), random(0.7, 1.2));
+  sheeps.push(graphicDesignSheep);
   // Third Row
   x = width/2 + width/10;
   y = 2*height/3 + height/20;
   editingSheep = new Sheep(x, y, editingSheepImg, editingSheepAni, `EDITS`, -10, 27, random(0.5, 1), random(0.7, 1.2));
+  sheeps.push(editingSheep);
   x = width/2;
   y = 2*height/3 + height/20;
   artSheep = new Sheep(x, y, artSheepImg, artSheepAni, `ART`, -10, 27, random(0.5, 1), random(0.7, 1.2));
+  sheeps.push(artSheep);
   x = width/2 - width/10;
   y = 2*height/3 + height/20;
   photographySheep = new Sheep(x, y, photographySheepImg, photographySheepAni, `PHOTOGRAPHY`, -10, 24, random(0.5, 1), random(0.7, 1.2));
+  sheeps.push(photographySheep);
 
   // Burger Menu
   x = width/25;
   y = height/10;
-  x1 = width/10;
+  x1 = width/15;
   y1 = height/4 + 40;
   let tX1 = width/20;
   let tY1 = height/7;
   burgerMenu = new BurgerMenu(x, y, x1, y1, tX1, tY1);
 
   // Navigation Bar
-  // Games
+  // Homepage
   x = width/16;
   y = height/7;
+  navigationBarHomepage = new NavigationBar(x, y, `Homepage`, `homepage`);
+  // Games
+  x = width/16;
+  y = height/7 + 35;
   navigationBarGames = new NavigationBar(x, y, `Games`, `games`);
+  // Web Design
+  x = width/16;
+  y = height/7 + 70;
+  navigationBarWebDesign = new NavigationBar(x, y, `Web Design`, `webDesign`);
+  // 3D
+  x = width/16;
+  y = height/7 + 105;
+  navigationBar3D = new NavigationBar(x, y, `3D`, `3D`);
+  // Graphic Design
+  x = width/16;
+  y = height/7 + 140;
+  navigationBarDesign = new NavigationBar(x, y, `Graphic Design`, `graphicDesign`);
+  // Photography
+  x = width/16;
+  y = height/7 + 175;
+  navigationBarPhotography = new NavigationBar(x, y, `Photography`, `photography`);
+  // Art
+  x = width/16;
+  y = height/7 + 210;
+  navigationBarArt = new NavigationBar(x, y, `Art`, `art`);
+  // Editing
+  x = width/16;
+  y = height/7 + 245;
+  navigationBarEdits = new NavigationBar(x, y, `Editing`, `editing`);
 
 }
 
@@ -207,44 +243,80 @@ function draw() {
     photographySheep.update();
     artSheep.update();
 
-    // Burger Menu
-    burgerMenu.update();
-    // Mavigation Bar
-    navigationBarGames.update();
+    // Navigation Menu
+    navigationMenu();
 
   }
   else if(state === `games`){
-
-
-    push();
-    fill(0, 0 , 255);
-    rect(width/2, height/2, 500);
-    pop();
-
+    // Navigation Menu
+    navigationMenu();
   }
   else if(state === `graphicDesign`){
-
+    // Navigation Menu
+    navigationMenu();
   }
   else if(state === `webDesign`){
-
+    // Navigation Menu
+    navigationMenu();
   }
   else if(state === `webDesign`){
-
+    // Navigation Menu
+    navigationMenu();
   }
   else if(state === `3D`){
-
-  }
-  else if(state === `editing`){
-
+    // Navigation Menu
+    navigationMenu();
   }
   else if(state === `photography`){
-
+    // Navigation Menu
+    navigationMenu();
   }
+  else if(state === `art`){
+    // Navigation Menu
+    navigationMenu();
+  }
+  else if(state === `editing`){
+    // Navigation Menu
+    navigationMenu();
+  }
+
 
 }
 
+// Functions
+function navigationMenu(){
+  // Burger Menu
+  burgerMenu.update();
+  // Mavigation Bar
+  navigationBarHomepage.update(burgerMenu, homepage);
+  navigationBarGames.update(burgerMenu, homepage);
+  navigationBarWebDesign.update(burgerMenu, homepage);
+  navigationBar3D.update(burgerMenu, homepage);
+  navigationBarDesign.update(burgerMenu, homepage);
+  navigationBarPhotography.update(burgerMenu, homepage);
+  navigationBarArt.update(burgerMenu, homepage);
+  navigationBarEdits.update(burgerMenu, homepage);
+}
+
+function resetSheeps(){
+  // Reset Sheep
+  for (let i = 0; i < sheeps.length; i ++){
+    let sheep = sheeps[i];
+    sheep.opacity = 0;
+    sheep.opacity = 0;
+    sheep.flashing = true;
+    sheep.stallTime = 0;
+    sheep.startTimer = 0;
+    sheep.transparency = 40;
+    sheep.delay = random(0.5, 1);
+    sheep.delay1 = random(0.7, 1.2);
+
+}
+}
+
+// p5 Events
 function mousePressed() {
   logoButton.update();
-  burgerMenu.update();
-  navigationBarGames.update();
+  // Navigation Menu
+  navigationMenu();
 }

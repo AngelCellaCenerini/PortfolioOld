@@ -10,7 +10,6 @@ class Homepage{
     this.height = 510;
     this.width1 = 12;
     this.height1 = 400;
-    this.growth = 2;
     this.vx = 0;
     this.vy = 0;
     this.vy1 = 0;
@@ -108,10 +107,6 @@ class Homepage{
     stroke(42, 42, 42);
     // Central Square
     rect(this.x, this.y, 25*this.width, this.height);
-
-
-    // Display Burger Menu
-
 
     pop();
 

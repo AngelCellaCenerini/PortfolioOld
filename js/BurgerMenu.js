@@ -9,9 +9,9 @@ class BurgerMenu {
     this.textBoxX = x1;
     this.textBoxY = y1;
     this.width = 15;
-    this.textBoxWidth = 180;
-    this.textBoxHeight = 300;
     this.height = 2;
+    this.textBoxWidth = 160;
+    this.textBoxHeight = 300;
     this.vx = 0;
     this.vy = 0;
     this.speed = 5;
@@ -28,32 +28,34 @@ class BurgerMenu {
 
   interact(){
     // Hover over Burger Icon
-    let d = dist(this.x, this.y, mouseX, mouseY);
-    if (d < 4*this.height){
-      this.hovered = true;
-      this.extended = true;
-    }
-    else{
-      if (!this.extended){
-        this.hovered = false;
-        // Reset Values
-        this.speed = 5;
-        this.acceleration = 0.07;
-        this.y1 = this.y2;
-      }
-
-
+    if(mouseX > this.x - 3*this.width/2 &&
+         mouseX < this.x + 3*this.width/2 &&
+         mouseY > this.y - 3*this.height/2 &&
+         mouseY < this.y + 3*this.height/2){
+           // Rgister Status change
+           this.hovered = true;
+           this.extended = true;
+         }
+         else{
+           if (!this.extended){
+             this.hovered = false;
+             // Reset Values
+             this.speed = 5;
+             this.acceleration = 0.07;
+             this.y1 = this.y2;
+         }
     }
 
     // Hover over Navigation Bar
-    let d1 =  dist(this.textBoxX, this.textBoxY, mouseX, mouseY);
-    // if (((d1 < this.textBoxWidth/2) || (d1 < 150*this.height)) && (this.extended === true)){
-      if ((d1 < this.textBoxWidth) && (this.extended === true)){
-      // keep on keeping on :)
-    }
-    else{
-      this.extended = false;
-    }
+    if(mouseX > this.textBoxX - this.textBoxWidth/2 &&
+         mouseX < this.textBoxX + this.textBoxWidth/2 &&
+         mouseY > this.textBoxY - this.textBoxHeight/2 &&
+         mouseY < this.textBoxY + this.textBoxHeight/2){
+           // keep on keeping on :)
+         }
+         else{
+           this.extended = false;
+         }
 
   }
 
@@ -79,7 +81,6 @@ class BurgerMenu {
     // Display Navigation Bar
     if(this.extended === true || this.hovered === true ){
         // Text Box
-        // fill(254, 253, 249);
         fill(42, 42, 42, 0);
         rect(this.textBoxX, this.textBoxY, this.textBoxWidth, this.textBoxHeight);
 
