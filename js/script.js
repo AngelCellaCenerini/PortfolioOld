@@ -14,6 +14,8 @@ let bigShoulderDisplayLighterFont = undefined;
 // Logo
 let logoButton = undefined;
 let logoImage = undefined;
+// X Icon
+let xIcon = undefined;
 // Sheeps
 //Icons
 let gamesSheepImg = undefined;
@@ -59,8 +61,17 @@ let navigationBarPhotography = undefined;
 let navigationBarArt = undefined;
 let navigationBarEdits = undefined;
 
+// Pages
+let gamesPage = undefined;
+let graphicDesignPage = undefined;
+let webDesignPage = undefined;
+let triDPage = undefined;
+let editingPage = undefined;
+let photographyPage = undefined;
+let artPage = undefined;
+
 // States - LogoScreen, Homepage, Games, Graphic Design, Web Design, Video Editing, 3D, Photography
-let state = `homepage`;
+let state = `games`;
 
 /**
 Description of preload
@@ -74,6 +85,8 @@ function preload() {
   // Graphics
   // Logo
   logoImage = loadImage('assets/images/LogoButton.png');
+  // 'X' Icon
+  xIcon = loadImage('assets/images/thickXIcon.png');
 
   // Sheeps
   // Icons
@@ -208,6 +221,16 @@ function setup() {
   y = height/7 + 245;
   navigationBarEdits = new NavigationBar(x, y, `Editing`, `editing`);
 
+  // Pages
+  // Games
+  x = width/2 + 50;
+  y = height/2;
+  let imageX = width/2 + 100;
+  let imageY = height/2 - 20;
+  let imageWidth = 310;
+  let imageHeight = 250;
+  gamesPage = new Page(x, y, `TITLE Tile.`, `Games cracjed opend sd.`, `NAME1`, `NAME2`, imageX, imageY, imageWidth, imageHeight);
+
 }
 
 // States
@@ -250,6 +273,8 @@ function draw() {
   else if(state === `games`){
     // Navigation Menu
     navigationMenu();
+    // Page
+    gamesPage.update();
   }
   else if(state === `graphicDesign`){
     // Navigation Menu
