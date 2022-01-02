@@ -224,12 +224,16 @@ function setup() {
   // Pages
   // Games
   x = width/2 + 50;
-  y = height/2;
-  let imageX = width/2 + 100;
-  let imageY = height/2 - 20;
-  let imageWidth = 310;
-  let imageHeight = 250;
-  gamesPage = new Page(x, y, `TITLE Tile.`, `Games cracjed opend sd.`, `NAME1`, `NAME2`, imageX, imageY, imageWidth, imageHeight);
+  y = height/2 - 40;
+  let imageX = width/2;
+  let imageY = height/2;
+  let imageEX = width/2;
+  let imageEY = height/2;
+  let arrowX = width/4 + 15;
+  let arrowY = 3*height/5 + 110;
+  let arrowX1 = 5*width/6;
+  let arrowY1 = height/5 + 20;
+  gamesPage = new Page(x, y, `TITLE Tile.`, `Games cracjed opend sd.`, `NAME1`, `NAME2`, `NAME3`, imageX, imageY, imageEX, imageEY, arrowX, arrowY, arrowX1, arrowY1);
 
 }
 
