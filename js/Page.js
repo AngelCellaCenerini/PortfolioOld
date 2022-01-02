@@ -45,9 +45,6 @@ class Page{
     this.expanded = false;
     this.expanded1 = false;
     this.expanded2 = false;
-    this.zooming = false;
-    this.zooming1 = false;
-    this.zooming2 = false;
 
   }
   update(){
@@ -104,12 +101,13 @@ class Page{
     let dImage = dist(this.imageX, this.imageY, mouseX, mouseY);
     // Image Bottom Right
     let dImage1 = dist(this.imageX2, this.imageY2, mouseX, mouseY);
-    if((dImage < (this.imageWidth/2 - 30)) || (dImage1 < (this.imageWidth/2 - 30)) || (mouseX > this.imageX1 - (this.imageWidth/2 + 60) &&
-         mouseX < this.imageX1 + (this.imageWidth/2 + 60) &&
-         mouseY > this.imageY1 - (this.imageHeight/2 + 15) &&
-         mouseY < this.imageY1 + (this.imageHeight/2 + 15))){
-      // Change Cursor
-      cursor('zoom-in');
+    if((dImage < this.imageWidth/2) || (dImage1 < this.imageWidth/2) || (mouseX > this.imageX1 - this.imageWidth/2 &&
+         mouseX < this.imageX1 + this.imageWidth/2 &&
+         mouseY > this.imageY1 - this.imageHeight/2 &&
+         mouseY < this.imageY1 + this.imageHeight/2)){
+
+          // Change Cursor
+          cursor('zoom-in');
     }
     else{
       // Restore Cursor
@@ -123,6 +121,7 @@ class Page{
     // Enlarge Plus Buttons when hovered
     // Button 1
     if(this.expanded){
+      // Expand Button
       this.arrowArea = this.arrowArea + this.growth;
       if (this.arrowArea >= 45){
          this.growth = 0;
@@ -130,6 +129,7 @@ class Page{
     }
     // Button 2
     if(this.expanded1){
+      // Expand Button
       this.arrowArea1 = this.arrowArea1 + this.growth1;
       if (this.arrowArea1 >= 45){
          this.growth1 = 0;
@@ -137,6 +137,7 @@ class Page{
     }
     // Button 3
     if(this.expanded2){
+      // Expand Button
       this.arrowArea2 = this.arrowArea2 + this.growth2;
       if (this.arrowArea2 >= 45){
          this.growth2 = 0;
