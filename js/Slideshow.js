@@ -95,6 +95,7 @@ class Slideshow{
     textSize(50);
     rect(this.arrowX, this.arrowY, this.iconSize);
     fill(254, 253, 249, this.opacity);
+    textFont(`Courier`);
     text(`>`, this.arrowX, this.arrowY);
 
     pop();

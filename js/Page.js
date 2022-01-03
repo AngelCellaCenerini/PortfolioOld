@@ -2,6 +2,10 @@ class Page{
   constructor(x, y, title, subhead, name1, name2, name3, imageX, imageY, arrowX, arrowY, arrowX1, arrowY1){
     this.x = x;
     this.y = y;
+    this.vx = 0;
+    this.vy = 0;
+    this.speed = 3;
+    this.acceleration = 0.15;
     this.title = title;
     this.subhead = subhead;
     this.name1 = name1;
@@ -9,10 +13,7 @@ class Page{
     this.name3 = name3;
     this.width = 220;
     this.height = 500;
-    this.vx = 0;
-    this.vy = 0;
-    this.speed = 2;
-    this.acceleration = 0.08;
+    // Images
     this.imageX = imageX + 420;
     this.imageY = imageY - 140;
     this.imageX1 = imageX - 170;
@@ -24,9 +25,11 @@ class Page{
     this.imageVy = 0;
     this.imageSpeed = 2;
     this.imageAcceleration = 0.08;
+    this.tint = 0;
     this.delay = 0;
     this.opacity = 0;
-    this.transparency = 10;
+    this.transparency = 40;
+
     // Arrows
     this.arrowX = arrowX;
     this.arrowY = arrowY;
@@ -48,9 +51,9 @@ class Page{
 
   }
   update(slideshow){
-    // this.delay++;
-    // this.move();
-    // this.reveal();
+    this.setState();
+    this.reveal();
+    this.move();
     if(this.active){
       this.enlarge(slideshow);     // Pics
       this.hoverButton();          // Plus Button
@@ -60,39 +63,65 @@ class Page{
 
   }
 
+  setState(){
+    // Assign Text and Images based on current State/Page
+    if(state === `games`){
+      // Games
+
+    }
+    else if(state === `webDesign`){
+      // Web Design
+    }
+    else if(state === `3D`){
+      // 3D
+    }
+    else if(state === `graphicDesign`){
+      // Design
+    }
+    else if(state === `photography`){
+      // Photgraphy
+    }
+    else if(state === `art`){
+      // Art
+    }
+    else if(state === `editing`){
+      // Edits
+    }
+  }
+
   move(){
     // Shift Layout Downwards
-    this.y = this.y + this.vy;
+    this.y = this.y - this.vy;
     this.vy = this.speed;
     this.speed = this.speed - this.acceleration;
-    // Stop
+    // // Stop
     if (this.speed <= 0){
       this.speed = 0;
       this.acceleration = 0;
     }
 
     // Slight Delay
-    if (this.delay > 0.4*60){
-      // Shift Images Downwards
-      this.imageY = this.imageY + this.imageVy;
-      this.imageVy = this.imageSpeed;
-      this.imageSpeed = this.imageSpeed - this.imageAcceleration;
-      // Stop
-      if (this.imageSpeed <= 0){
-        this.imageSpeed = 0;
-        this.imageAcceleration = 0;
-      }
-    }
+    // if (this.delay > 0.4*60){
+    //   // Shift Images Downwards
+    //   this.imageY = this.imageY + this.imageVy;
+    //   this.imageVy = this.imageSpeed;
+    //   this.imageSpeed = this.imageSpeed - this.imageAcceleration;
+    //   // Stop
+    //   if (this.imageSpeed <= 0){
+    //     this.imageSpeed = 0;
+    //     this.imageAcceleration = 0;
+    //   }
+    // }
 
   }
 
   reveal(){
-    if (this.delay > 0.4*60){
+    this.delay++;
+    if (this.delay > 1*60){
       this.opacity = this.opacity + this.transparency;
-      console.log(this.opacity);
-      // if (this.opacity >= 255){
-      //   this.transparency = 0;
-      // }
+      if (this.opacity >= 255){
+        this.transparency = 0;
+      }
     }
   }
 
@@ -199,7 +228,6 @@ class Page{
     // Yellow
     fill(253, 221, 107);
     rect(this.x + this.width/5, this.y + 2*this.height/3, 3*this.width/2, 3*this.height/2);
-    rect(this.x + this.width/5, this.y + 2*this.height, 3*this.width/2, 3*this.height/2);
     // Black(〜)
     fill(42, 42, 42);
     rect(this.x + this.width, this.y, this.width, this.height);
@@ -262,7 +290,7 @@ class Page{
 
     // Projects Details (Expanded)
     // Yellow Buttons (Ellipse)
-    fill(253, 221, 107);
+    fill(253, 221, 107, this.opacity);
     // Left Bottom
     ellipse(this.arrowX, this.arrowY, this.arrowArea);
     // Right Top
@@ -271,7 +299,7 @@ class Page{
     ellipse(this.arrowX2, this.arrowY2, this.arrowArea2);
 
     // Arrows
-    fill(42);
+    fill(42, this.opacity);
     textSize(20);
     textFont(`Courier`);
     textAlign(CENTER);
@@ -310,16 +338,6 @@ class Page{
         and cats fighting over affection.
         Not for the weak of heart.`, this.x + 2*this.width + 10, this.y + this.height/9);
     }
-
-    // Enlarged Images
-    // rectMode(CENTER);
-    // // Darkened Background
-    // fill(42, 200);
-    // let backgroundW = width;
-    // let backgroundH = height;
-    // rect(this.imageEX, this.imageEY, backgroundW, backgroundH);
-    // fill(200);
-    // rect(this.imageEX, this.imageEY, 1200, 600);
 
     pop();
 

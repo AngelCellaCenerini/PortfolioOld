@@ -227,10 +227,9 @@ function setup() {
   y = height/7 + 245;
   navigationBarEdits = new NavigationBar(x, y, `Editing`, `editing`);
 
-  // Pages
-  // Games
+  // Page(s)
   x = width/2 + 50;
-  y = height/2 - 40;
+  y = height/2;
   let imageX = width/2;
   let imageY = height/2;
   let arrowX = width/4 + 15;
@@ -295,10 +294,6 @@ function draw() {
     slideshow.update(gamesPage);
   }
   else if(state === `graphicDesign`){
-    // Navigation Menu
-    navigationMenu();
-  }
-  else if(state === `webDesign`){
     // Navigation Menu
     navigationMenu();
   }
