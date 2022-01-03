@@ -20,9 +20,12 @@ class BurgerMenu {
     this.extended = false;
   }
 
-  update(){
+  update(slideshow){
     this.display();
-    this.interact();
+    if(!slideshow.active){
+      // Check that Page is active
+      this.interact();
+    }
     this.move();
   }
 

@@ -1,5 +1,5 @@
 class Page{
-  constructor(x, y, title, subhead, name1, name2, name3, imageX, imageY, imageEX, imageEY, arrowX, arrowY, arrowX1, arrowY1){
+  constructor(x, y, title, subhead, name1, name2, name3, imageX, imageY, arrowX, arrowY, arrowX1, arrowY1){
     this.x = x;
     this.y = y;
     this.title = title;
@@ -19,8 +19,6 @@ class Page{
     this.imageY1 = imageY + 120;
     this.imageX2 = imageX + 420;
     this.imageY2 = imageY + 70;
-    this.imageEX = imageEX;
-    this.imageEY = imageEY;
     this.imageWidth = 270;
     this.imageHeight = 190;
     this.imageVy = 0;
@@ -45,15 +43,19 @@ class Page{
     this.expanded = false;
     this.expanded1 = false;
     this.expanded2 = false;
+    // Being Able to click/interact with page
+    this.active = true;
 
   }
-  update(){
+  update(slideshow){
     // this.delay++;
     // this.move();
     // this.reveal();
-    this.enlarge();     // Pics
-    this.hoverButton(); // Plus Button
-    this.expand();      // Additional Info on Projects
+    if(this.active){
+      this.enlarge(slideshow);     // Pics
+      this.hoverButton();          // Plus Button
+      this.expand();               // Additional Info on Projects
+    }
     this.display();
 
   }
@@ -94,20 +96,29 @@ class Page{
     }
   }
 
-  enlarge(){
+  enlarge(slideshow){
     // Zoom in/Enlarge Images
     // Check if mouse is Hovering over Image
     // Image Top Right
     let dImage = dist(this.imageX, this.imageY, mouseX, mouseY);
     // Image Bottom Right
     let dImage1 = dist(this.imageX2, this.imageY2, mouseX, mouseY);
-    if((dImage < this.imageWidth/2) || (dImage1 < this.imageWidth/2) || (mouseX > this.imageX1 - this.imageWidth/2 &&
-         mouseX < this.imageX1 + this.imageWidth/2 &&
-         mouseY > this.imageY1 - this.imageHeight/2 &&
-         mouseY < this.imageY1 + this.imageHeight/2)){
+    if((dImage < this.imageWidth/3) || (dImage1 < this.imageWidth/3) || (mouseX > this.imageX1 - this.imageWidth/3 &&
+         mouseX < this.imageX1 + this.imageWidth/3 &&
+         mouseY > this.imageY1 - this.imageHeight/3 &&
+         mouseY < this.imageY1 + this.imageHeight/3)){
 
           // Change Cursor
           cursor('zoom-in');
+          // Check if Mouse is Pressed
+          if(mouseIsPressed){
+            // Restore Cursor
+            cursor('auto');
+            // Open Slideshow
+            slideshow.active = true;
+            // Disable Interactivity with current page - elements won't change when hovered over
+            this.active = false;
+          }
     }
     else{
       // Restore Cursor

@@ -16,6 +16,7 @@ let logoButton = undefined;
 let logoImage = undefined;
 // X Icon
 let xIcon = undefined;
+let xIconThick = undefined;
 // Sheeps
 //Icons
 let gamesSheepImg = undefined;
@@ -70,6 +71,10 @@ let editingPage = undefined;
 let photographyPage = undefined;
 let artPage = undefined;
 
+// Slideshows
+// Games
+let slideshow = undefined;
+
 // States - LogoScreen, Homepage, Games, Graphic Design, Web Design, Video Editing, 3D, Photography
 let state = `games`;
 
@@ -87,6 +92,7 @@ function preload() {
   logoImage = loadImage('assets/images/LogoButton.png');
   // 'X' Icon
   xIcon = loadImage('assets/images/thickXIcon.png');
+  xIconThick = loadImage('assets/images/XIconSmall.png');
 
   // Sheeps
   // Icons
@@ -227,14 +233,20 @@ function setup() {
   y = height/2 - 40;
   let imageX = width/2;
   let imageY = height/2;
-  let imageEX = width/2;
-  let imageEY = height/2;
   let arrowX = width/4 + 15;
   let arrowY = 3*height/5 + 110;
   let arrowX1 = 5*width/6;
   let arrowY1 = height/5 + 20;
-  gamesPage = new Page(x, y, `TITLE Tile.`, `Games cracjed opend sd.`, `NAME1`, `NAME2`, `NAME3`, imageX, imageY, imageEX, imageEY, arrowX, arrowY, arrowX1, arrowY1);
+  gamesPage = new Page(x, y, `TITLE Tile.`, `Games cracjed opend sd.`, `NAME1`, `NAME2`, `NAME3`, imageX, imageY, arrowX, arrowY, arrowX1, arrowY1);
 
+
+  // Slideshows
+  // Games
+  x = width/2;
+  y = height/2;
+  let iconX = width/12;
+  let iconY = -20;
+  slideshow = new Slideshow(x, y, iconX, iconY);
 }
 
 // States
@@ -278,7 +290,9 @@ function draw() {
     // Navigation Menu
     navigationMenu();
     // Page
-    gamesPage.update();
+    gamesPage.update(slideshow);
+    // Slideshow
+    slideshow.update(gamesPage);
   }
   else if(state === `graphicDesign`){
     // Navigation Menu
@@ -315,7 +329,7 @@ function draw() {
 // Functions
 function navigationMenu(){
   // Burger Menu
-  burgerMenu.update();
+  burgerMenu.update(slideshow);
   // Mavigation Bar
   navigationBarHomepage.update(burgerMenu, homepage);
   navigationBarGames.update(burgerMenu, homepage);
@@ -348,4 +362,19 @@ function mousePressed() {
   logoButton.update();
   // Navigation Menu
   navigationMenu();
+  // Slideshow
+  slideshow.update(gamesPage);
+  slide();
+
+}
+
+function slide(){
+    // Slide along Images
+    let d = dist(slideshow.arrowX, slideshow.arrowY, mouseX, mouseY);
+    if ( d < slideshow.iconSize/2 && mouseIsPressed === true){
+      slideshow.currentIndex ++;
+      if (slideshow.currentIndex >= slideshow.images.length){
+        slideshow.currentIndex = 0;
+      }
+  }
 }
