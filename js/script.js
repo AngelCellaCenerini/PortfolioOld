@@ -62,24 +62,17 @@ let navigationBarPhotography = undefined;
 let navigationBarArt = undefined;
 let navigationBarEdits = undefined;
 
-// Pages
-let gamesPage = undefined;
-let graphicDesignPage = undefined;
-let webDesignPage = undefined;
-let triDPage = undefined;
-let editingPage = undefined;
-let photographyPage = undefined;
-let artPage = undefined;
+// Page(s)
+let page = undefined;
 
-// Slideshows
-// Games
+// Slideshow(s)
 let slideshow = undefined;
 
 // States - LogoScreen, Homepage, Games, Graphic Design, Web Design, Video Editing, 3D, Photography
 let state = `games`;
 
 /**
-Description of preload
+Preload Files
 */
 function preload() {
 
@@ -236,11 +229,10 @@ function setup() {
   let arrowY = 3*height/5 + 110;
   let arrowX1 = 5*width/6;
   let arrowY1 = height/5 + 20;
-  gamesPage = new Page(x, y, `TITLE Tile.`, `Games cracjed opend sd.`, `NAME1`, `NAME2`, `NAME3`, imageX, imageY, arrowX, arrowY, arrowX1, arrowY1);
+  page = new Page(x, y, imageX, imageY, arrowX, arrowY, arrowX1, arrowY1);
 
 
-  // Slideshows
-  // Games
+  // Slideshow(s)
   x = width/2;
   y = height/2;
   let iconX = width/12;
@@ -286,36 +278,67 @@ function draw() {
 
   }
   else if(state === `games`){
+
+    // Page
+    page.update(slideshow);
     // Navigation Menu
     navigationMenu();
-    // Page
-    gamesPage.update(slideshow);
     // Slideshow
-    slideshow.update(gamesPage);
+    slideshow.update(page);
   }
   else if(state === `graphicDesign`){
+
+    // Page
+    page.update(slideshow);
     // Navigation Menu
     navigationMenu();
+    // Slideshow
+    slideshow.update(page);
   }
   else if(state === `webDesign`){
+
+    // Page
+    page.update(slideshow);
     // Navigation Menu
     navigationMenu();
+    // Slideshow
+    slideshow.update(page);
   }
   else if(state === `3D`){
+
+    // Page
+    page.update(slideshow);
     // Navigation Menu
     navigationMenu();
+    // Slideshow
+    slideshow.update(page);
   }
   else if(state === `photography`){
+
+    // Page
+    page.update(slideshow);
     // Navigation Menu
     navigationMenu();
+    // Slideshow
+    slideshow.update(page);
   }
   else if(state === `art`){
+
+    // Page
+    page.update(slideshow);
     // Navigation Menu
     navigationMenu();
+    // Slideshow
+    slideshow.update(page);
   }
   else if(state === `editing`){
+
+    // Page
+    page.update(slideshow);
     // Navigation Menu
     navigationMenu();
+    // Slideshow
+    slideshow.update(page);
   }
 
 
@@ -326,14 +349,14 @@ function navigationMenu(){
   // Burger Menu
   burgerMenu.update(slideshow);
   // Mavigation Bar
-  navigationBarHomepage.update(burgerMenu, homepage);
-  navigationBarGames.update(burgerMenu, homepage);
-  navigationBarWebDesign.update(burgerMenu, homepage);
-  navigationBar3D.update(burgerMenu, homepage);
-  navigationBarDesign.update(burgerMenu, homepage);
-  navigationBarPhotography.update(burgerMenu, homepage);
-  navigationBarArt.update(burgerMenu, homepage);
-  navigationBarEdits.update(burgerMenu, homepage);
+  navigationBarHomepage.update(burgerMenu, homepage, page);
+  navigationBarGames.update(burgerMenu, homepage, page);
+  navigationBarWebDesign.update(burgerMenu, homepage, page);
+  navigationBar3D.update(burgerMenu, homepage, page);
+  navigationBarDesign.update(burgerMenu, homepage, page);
+  navigationBarPhotography.update(burgerMenu, homepage, page);
+  navigationBarArt.update(burgerMenu, homepage, page);
+  navigationBarEdits.update(burgerMenu, homepage, page);
 }
 
 function resetSheeps(){
@@ -354,22 +377,24 @@ function resetSheeps(){
 
 // p5 Events
 function mousePressed() {
-  logoButton.update();
+  logoButton.update(introText);
   // Navigation Menu
   navigationMenu();
   // Slideshow
-  slideshow.update(gamesPage);
+  slideshow.update(page);
   slide();
 
 }
 
 function slide(){
     // Slide along Images
-    let d = dist(slideshow.arrowX, slideshow.arrowY, mouseX, mouseY);
-    if ( d < slideshow.iconSize/2 && mouseIsPressed === true){
-      slideshow.currentIndex ++;
-      if (slideshow.currentIndex >= slideshow.images.length){
-        slideshow.currentIndex = 0;
-      }
-  }
+    // if(state === `games`){
+      let d = dist(slideshow.arrowX, slideshow.arrowY, mouseX, mouseY);
+      if ( d < slideshow.iconSize/2 && mouseIsPressed === true){
+        slideshow.currentIndex ++;
+        if (slideshow.currentIndex >= slideshow.images.length){
+          slideshow.currentIndex = 0;
+        }
+    }
+  // }
 }

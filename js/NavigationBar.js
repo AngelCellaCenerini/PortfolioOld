@@ -8,15 +8,15 @@ class NavigationBar {
     this.chosenState = chosenState;
 
   }
-  update(burgerMenu, homepage){
+  update(burgerMenu, homepage, page){
     if (burgerMenu.extended){
-      this.changeState(homepage);
+      this.changeState(homepage, page);
       this.display();
 
     }
   }
 
-  changeState(homepage){
+  changeState(homepage, page){
     // Check if mouse is located over text
     if(mouseX > this.x - this.width/2 &&
          mouseX < this.x + this.width/2 &&
@@ -28,13 +28,13 @@ class NavigationBar {
              // Change State
              state = this.chosenState;
              // Reset Page(s) Values
-             this.resetAll(homepage);
+             this.resetAll(homepage, page);
              resetSheeps();
            }
       }
   }
 
-  resetAll(homepage){
+  resetAll(homepage, page){
 
     // Homepage
     // Reset Values
@@ -58,6 +58,21 @@ class NavigationBar {
     homepage.y1 = height/2 - 50;
     homepage.x2 = width/2;
     homepage.y2 = height/2 - 50;
+
+    // Page(s)
+    // Reset Values
+    page.vy = 0;
+    page.speed = 3;
+    page.acceleration = 0.15;
+    page.tint = 0;
+    page.tint1 = 0;
+    page.tint2 = 0;
+    page.delay = 0;
+    page.opacity = 0;
+    page.transparency = 40;
+    // Relocate
+    page.x = width/2 + 50;
+    page.y = height/2;
 
   }
 

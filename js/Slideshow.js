@@ -22,7 +22,7 @@ class Slideshow{
   update(page){
     // Only Active after User "zooms in" pics
     if (this.active){
-      this.assignImg();
+      this.assignImg(page);
       this.move();
       this.darken();
       this.close(page);
@@ -30,8 +30,113 @@ class Slideshow{
     }
   }
 
-  assignImg(){
-    this.images = [gamesSheepImg, graphicDesignSheepImg, webDesignSheepImg];
+  assignImg(page){
+    // Establish State
+    // Games
+    if(state === `games`){
+      // Check which Thumnail Image was Selected
+      // Display Relevant Images
+      if(page.first){
+        this.images = [gamesSheepImg, graphicDesignSheepImg, webDesignSheepImg];
+      }
+      else if(page.second){
+        this.images = [triDSheepImg, graphicDesignSheepImg, triDSheepImg];
+      }
+      else if(page.third){
+        this.images = [photographySheepImg, editingSheepImg, webDesignSheepImg];
+      }
+    }
+
+    // Web Design
+    if(state === `webDesign`){
+      // Check which Thumnail Image was Selected
+      // Display Relevant Images
+      if(page.first){
+        this.images = [gamesSheepImg, gamesSheepImg, gamesSheepImg];
+      }
+      else if(page.second){
+        this.images = [triDSheepImg, graphicDesignSheepImg, triDSheepImg];
+      }
+      else if(page.third){
+        this.images = [artSheepImg, editingSheepImg, photographySheepImg];
+      }
+    }
+
+    // 3D
+    if(state === `3D`){
+      // Check which Thumnail Image was Selected
+      // Display Relevant Images
+      if(page.first){
+        this.images = [gamesSheepImg, graphicDesignSheepImg, webDesignSheepImg];
+      }
+      else if(page.second){
+        this.images = [triDSheepImg, graphicDesignSheepImg, triDSheepImg];
+      }
+      else if(page.third){
+        this.images = [photographySheepImg, editingSheepImg, webDesignSheepImg];
+      }
+    }
+
+    // Design
+    if(state === `graphicDesign`){
+      // Check which Thumnail Image was Selected
+      // Display Relevant Images
+      if(page.first){
+        this.images = [gamesSheepImg, graphicDesignSheepImg, webDesignSheepImg];
+      }
+      else if(page.second){
+        this.images = [triDSheepImg, graphicDesignSheepImg, triDSheepImg];
+      }
+      else if(page.third){
+        this.images = [photographySheepImg, editingSheepImg, webDesignSheepImg];
+      }
+    }
+
+    // Photography
+    if(state === `photography`){
+      // Check which Thumnail Image was Selected
+      // Display Relevant Images
+      if(page.first){
+        this.images = [gamesSheepImg, graphicDesignSheepImg, webDesignSheepImg];
+      }
+      else if(page.second){
+        this.images = [triDSheepImg, graphicDesignSheepImg, triDSheepImg];
+      }
+      else if(page.third){
+        this.images = [photographySheepImg, editingSheepImg, webDesignSheepImg];
+      }
+    }
+
+    // Art
+    if(state === `art`){
+      // Check which Thumnail Image was Selected
+      // Display Relevant Images
+      if(page.first){
+        this.images = [gamesSheepImg, graphicDesignSheepImg, webDesignSheepImg];
+      }
+      else if(page.second){
+        this.images = [triDSheepImg, graphicDesignSheepImg, triDSheepImg];
+      }
+      else if(page.third){
+        this.images = [photographySheepImg, editingSheepImg, webDesignSheepImg];
+      }
+    }
+
+    // Editing
+    if(state === `editing`){
+      // Check which Thumnail Image was Selected
+      // Display Relevant Images
+      if(page.first){
+        this.images = [gamesSheepImg, graphicDesignSheepImg, webDesignSheepImg];
+      }
+      else if(page.second){
+        this.images = [triDSheepImg, graphicDesignSheepImg, triDSheepImg];
+      }
+      else if(page.third){
+        this.images = [photographySheepImg, editingSheepImg, webDesignSheepImg];
+      }
+    }
+
     this.currentImage = this.images[this.currentIndex];
   }
 
