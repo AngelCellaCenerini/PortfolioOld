@@ -89,7 +89,7 @@ function preload() {
   logoImage = loadImage('assets/images/LogoButton.png');
   // 'X' Icon
   xIcon = loadImage('assets/images/thickXIcon.png');
-  xIconThick = loadImage('assets/images/XIconSmall.png');
+  xIconThick = loadImage('assets/images/xIconSmall.png');
   // Email Icon
   emailIcon = loadImage('assets/images/emailIcon.png');
 
