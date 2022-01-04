@@ -17,6 +17,10 @@ let logoImage = undefined;
 // X Icon
 let xIcon = undefined;
 let xIconThick = undefined;
+// Email Icon
+let email = undefined;
+let emailIcon = undefined;
+
 // Sheeps
 //Icons
 let gamesSheepImg = undefined;
@@ -86,6 +90,8 @@ function preload() {
   // 'X' Icon
   xIcon = loadImage('assets/images/thickXIcon.png');
   xIconThick = loadImage('assets/images/XIconSmall.png');
+  // Email Icon
+  emailIcon = loadImage('assets/images/emailIcon.png');
 
   // Sheeps
   // Icons
@@ -238,6 +244,12 @@ function setup() {
   let iconX = width/12;
   let iconY = -20;
   slideshow = new Slideshow(x, y, iconX, iconY);
+
+  // Email Icon
+  x = width/20;
+  y = 6*height/7;
+  email = new Email(x, y, emailIcon);
+
 }
 
 // States
@@ -276,6 +288,9 @@ function draw() {
     // Navigation Menu
     navigationMenu();
 
+    // Email Icon
+    email.update();
+
   }
   else if(state === `games`){
 
@@ -285,6 +300,8 @@ function draw() {
     navigationMenu();
     // Slideshow
     slideshow.update(page);
+    // Email Icon
+    email.update();
   }
   else if(state === `graphicDesign`){
 
@@ -340,6 +357,9 @@ function draw() {
     // Slideshow
     slideshow.update(page);
   }
+
+  // Include Email Button
+  manageEmailButton();
 
 
 }
@@ -397,4 +417,11 @@ function slide(){
         }
     }
   // }
+}
+
+function manageEmailButton(){
+  if(state !== `logoScreen`){
+    let emailButton = document.getElementById('email');
+    emailButton.style.visibility = `visible`;
+  }
 }
