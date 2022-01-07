@@ -60,6 +60,11 @@ class Page{
     this.expanded2 = false;
     // Click/interact with Page
     this.active = true;
+    // For GitHub
+    this.textBoxX = x - 380;
+    this.textBoxY = y - 150;
+    this.boxWidth = 80;
+    this.boxHeight = 25;
 
   }
   update(slideshow){
@@ -84,51 +89,234 @@ class Page{
       this.image2 = gamesSheepImg;
       this.image3 = gamesSheepImg;
       // Text
-      this.title = `TITLE Tile.`;
-      this.subhead = `Games cracjed opend sd.`;
+      this.title = `GAMES & Coding.`;
+      this.subhead = `GitHub`;
+      // Text Box
+      push();
+      fill(42, 0);
+      rect(this.textBoxX, this.textBoxY, this.boxWidth, this.boxHeight);
+      // Click Box
+      if (
+      mouseX > this.textBoxX - this.boxWidth/2 &&
+      mouseX < this.textBoxX + this.boxWidth/2 &&
+      mouseY > this.textBoxY - this.boxHeight/2 &&
+      mouseY < this.textBoxY + this.boxHeight/2 && mouseIsPressed === true) {
+         // Open GitHub Window
+         if(mouseIsPressed){
+           window.open('https://github.com/AngelCellaCenerini');
+         }
+       }
+      pop();
       // Top Right
-      this.name1 = `NAME1`;
+      this.name1 = `JURASSIC PARK
+      MOMENT`;
       // Left
-      this.name2 = `NAME2`;
+      this.name2 = `IT CHOOSES`;
       // Bottom Right
-      this.name3 = `NAME3`;
+      this.name3 = `MADELEINE`;
       this.description1 = `
-        Adventure game about dogs
-        and cats fighting over affection.
-        Not for the weak of cazzo.`;
-      this.description2 = `Adventure game about dogs and cats fighting
-        over affection. Not for the weak of weak.`;
+      Live your own Jurassic Park Moment.
+      Set webpage zoom to 80% and
+      then refresh page before starting.`;
+      this.description2 = `Face them. Regain your five senses.
+      Choose.`;
       this.description3 = `
-        Adventure game about dogs
-        and cats fighting over affection.
-        Not for the weak of heart.`;
-      this.details1 = `Javascript | p5.js library
-        Cacca`;
+      Solve puzzles to collect notes and scripts
+      to unlock the melody that might
+      explain everything.`;
+      this.details1 = `Javascript | HTML | CSS
+      Feat. p5.js Library,
+      ResponsiveVoice.js, JSON`;
       this.details2 = `
-        Javascript | p5.js
-        Cacca`;
+      Javascript | HTML | CSS
+      Feat. p5.js Library, JSON &
+      jQuery | jQuery UI`;
       this.details3 = `
-        Javascript | p5.js
-        Cacco`;
+      Javascript | HTML | CSS
+      Feat. p5.js Library `;
 
     }
     else if(state === `webDesign`){
       // Web Design
+      // Images Thumbnails
+      this.image1 = gamesSheepImg;
+      this.image2 = gamesSheepImg;
+      this.image3 = gamesSheepImg;
+      // Text
+      this.title = `WEB Designs.`;
+      this.subhead = `Coded & Built`;
+      // Top Right
+      this.name1 = `WEB GAME HYBRID`;
+      // Left
+      this.name2 = `CP3 WEBSITE`;
+      // Bottom Right
+      this.name3 = `PORTFOLIO`;
+      this.description1 = `
+      Conventional website layout
+      featuring game mechanincs.`;
+      this.description2 = `Dynamic and easy to navigate, CP3's new website embodies
+      the passionate commitment of its members by thoroughly
+      showcasing its mission and projects.`;
+      this.description3 = `
+      Portfolio Website.
+      Hope you're enjoying it.`;
+      this.details1 = `Built via Code
+      Javascript | HTML | CSS`;
+      this.details2 = `
+      Built via SquareSpace
+      Original Graphics`;
+      this.details3 = `
+        Built via Code
+        Javascript | HTML | CSS`;
     }
     else if(state === `3D`){
       // 3D
+      // Images Thumbnails
+      this.image1 = gamesSheepImg;
+      this.image2 = gamesSheepImg;
+      this.image3 = gamesSheepImg;
+      // Text
+      this.title = `3D Projects.`;
+      this.subhead = `Ambience & Characters`;
+      // Top Right
+      this.name1 = `LOW POLY DIORAMA`;
+      // Left
+      this.name2 = `SCULPTED MODEL`;
+      // Bottom Right
+      this.name3 = `KITBASH`;
+      this.description1 = `
+      Reverse concept of the window
+      cleaner career, littered with
+      domestic scenes.`;
+      this.description2 = `Feathered humanoid character. Mythological creature
+      interpretating the unfamous behaviour of the
+      bird species of the cuckoo.`;
+      this.description3 = `
+      Biomechanical interpretation of
+      hammerhead shark, built via
+      hardsurface models and components.`;
+      this.details1 = `Sculptued in Blender
+      UV Coloring`;
+      this.details2 = `
+      Sculpted in Blender
+      Texture Paint &
+      Adobe Substance 3D Painter`;
+      this.details3 = `
+      Sculpted in Blender
+      Adobe Substance 3D Painter`;
     }
     else if(state === `graphicDesign`){
       // Design
+      // Images Thumbnails
+      this.image1 = gamesSheepImg;
+      this.image2 = gamesSheepImg;
+      this.image3 = gamesSheepImg;
+      // Text
+      this.title = `GRAPHIC designs.`;
+      this.subhead = `Social Media Posts, Posters & Logos`;
+      // Top Right
+      this.name1 = `CP3 LOGO`;
+      // Left
+      this.name2 = `PROMOTIONAL EARRINGS POSTER`;
+      // Bottom Right
+      this.name3 = `POSTS`;
+      this.description1 = `
+      Concordia Precious Plastic Project
+      (CP3)'s redesigned logo conveys
+      an immediate understanding of
+      the initiative's mission.`;
+      this.description2 = `Designed to promote earrings made out of HDPE recycled plastic
+      by the CP3 initiative within the Concordia University campus. `;
+      this.description3 = `
+      Collection of selected designs branding
+      and promoting CP3's events and projects.`;
+      this.details1 = `Adobe Illustrator`;
+      this.details2 = `
+      Adobe Illustrator
+      & Canva`;
+      this.details3 = `
+      Canva`;
     }
     else if(state === `photography`){
       // Photgraphy
+      // Images Thumbnails
+      this.image1 = gamesSheepImg;
+      this.image2 = gamesSheepImg;
+      this.image3 = gamesSheepImg;
+      // Text
+      this.title = `PHOTOGRAPY Experiments.`;
+      this.subhead = `Exploring techical and expressive routes`;
+      // Top Right
+      this.name1 = `PHOT_1`;
+      // Left
+      this.name2 = `PHOT_2`;
+      // Bottom Right
+      this.name3 = `PHOT_3`;
+      this.description1 = `
+      Emphasized constrasts & colors
+      to reinterpretate a mundane ambience.`;
+      this.description2 = `Quiet moments simultaneously captured.`;
+      this.description3 = `
+      In-progress.`;
+      this.details1 = ``;
+      this.details2 = `
+      `;
+      this.details3 = `
+      `;
     }
     else if(state === `art`){
       // Art
+      // Images Thumbnails
+      this.image1 = gamesSheepImg;
+      this.image2 = gamesSheepImg;
+      this.image3 = gamesSheepImg;
+      // Text
+      this.title = `JUST SOME Art.`;
+      this.subhead = `Personal Side Projects`;
+      // Top Right
+      this.name1 = `AMBIENCE STUDY`;
+      // Left
+      this.name2 = `ANATOMICAL STUDY`;
+      // Bottom Right
+      this.name3 = `CHARACTER STUDY`;
+      this.description1 = `
+      Eerie yet saturated scenario.`;
+      this.description2 = `Studying anatomy and expressiveness
+      of parts of the body.`;
+      this.description3 = `
+      Exploring a character's
+      aesthetics and narrative.`;
+      this.details1 = `Digital`;
+      this.details2 = `
+      Digital`;
+      this.details3 = `
+      Digital`;
     }
     else if(state === `editing`){
       // Edits
+      // Images Thumbnails
+      this.image1 = gamesSheepImg;
+      this.image2 = gamesSheepImg;
+      this.image3 = gamesSheepImg;
+      // Text
+      this.title = `VIDEO Edits.`;
+      this.subhead = `Personal & Promotional Projects`;
+      // Top Right
+      this.name1 = `COMP_1`;
+      // Left
+      this.name2 = `COMP_2`;
+      // Bottom Right
+      this.name3 = `COMP_3`;
+      this.description1 = `
+      In-progress.`;
+      this.description2 = `In-progress.`;
+      this.description3 = `
+      In-progress.`;
+      this.details1 = `Adobe After Effects`;
+      this.details2 = `
+      Adobe Premier Pro`;
+      this.details3 = `
+      Adobe After Effects`;
     }
   }
 
@@ -356,11 +544,11 @@ class Page{
     // Project 1 Title
     fill(42, 42, 42);
     textAlign(RIGHT);
-    text(this.name1, this.x + 465, this.y - 245);
+    text(this.name1, this.x + 490, this.y - 250);
 
     // Projects Details (Non-expanded)
     // textFont(bigShoulderDisplayLighterFont);
-    textSize(18);
+    textSize(17);
     // P1
     // Top Right
     fill(255);
@@ -407,7 +595,7 @@ class Page{
       textSize(18);
       textFont(bigShoulderDisplayLighterFont);
       textAlign(LEFT);
-      text(this.description1, this.x + 2*this.width + 30, this.y - this.height/5 - 10);
+      text(this.description1, this.x + 2*this.width + 30, this.y - this.height/5 - 20);
     }
     // Right Bottom
     if (this.expanded2){

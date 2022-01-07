@@ -403,6 +403,8 @@ function mousePressed() {
   // Slideshow
   slideshow.update(page);
   slide();
+  // Page
+  page.update(slideshow);
 
 }
 
