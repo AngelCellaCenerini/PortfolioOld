@@ -407,8 +407,11 @@ function slide(){
 }
 
 function manageEmailButton(){
+  let linkedButton = document.getElementById('email');
   if(state !== `logoScreen`){
-    let linkedButton = document.getElementById('email');
     linkedButton.style.visibility = `visible`;
+  }
+  if(slideshow.active){
+    linkedButton.style.visibility = `hidden`;
   }
 }
