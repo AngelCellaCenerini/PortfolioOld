@@ -17,9 +17,6 @@ let logoImage = undefined;
 // X Icon
 let xIcon = undefined;
 let xIconThick = undefined;
-// Email Icon
-let email = undefined;
-let emailIcon = undefined;
 
 // Sheeps
 //Icons
@@ -73,7 +70,7 @@ let page = undefined;
 let slideshow = undefined;
 
 // States - LogoScreen, Homepage, Games, Graphic Design, Web Design, Video Editing, 3D, Photography
-let state = `games`;
+let state = `homepage`;
 
 /**
 Preload Files
@@ -90,8 +87,6 @@ function preload() {
   // 'X' Icon
   xIcon = loadImage('assets/images/thickXIcon.png');
   xIconThick = loadImage('assets/images/xIconSmall.png');
-  // Email Icon
-  emailIcon = loadImage('assets/images/emailIcon.png');
 
   // Sheeps
   // Icons
@@ -245,17 +240,15 @@ function setup() {
   let iconY = -20;
   slideshow = new Slideshow(x, y, iconX, iconY);
 
-  // Email Icon
-  x = width/20;
-  y = 6*height/7;
-  email = new Email(x, y, emailIcon);
-
 }
 
 // States
 function draw() {
 
     background(254, 253, 249);
+
+    // Include Email Button
+    manageEmailButton();
 
   // LogoScreen
   if(state === `logoScreen`){
@@ -288,9 +281,6 @@ function draw() {
     // Navigation Menu
     navigationMenu();
 
-    // Email Icon
-    email.update();
-
   }
   else if(state === `games`){
 
@@ -300,8 +290,6 @@ function draw() {
     navigationMenu();
     // Slideshow
     slideshow.update(page);
-    // Email Icon
-    email.update();
   }
   else if(state === `graphicDesign`){
 
@@ -358,9 +346,6 @@ function draw() {
     slideshow.update(page);
   }
 
-  // Include Email Button
-  manageEmailButton();
-
 
 }
 
@@ -404,7 +389,7 @@ function mousePressed() {
   slideshow.update(page);
   slide();
   // Page
-  page.update(slideshow);
+  page.setState();
 
 }
 
@@ -423,7 +408,7 @@ function slide(){
 
 function manageEmailButton(){
   if(state !== `logoScreen`){
-    let emailButton = document.getElementById('email');
-    emailButton.style.visibility = `visible`;
+    let linkedButton = document.getElementById('email');
+    linkedButton.style.visibility = `visible`;
   }
 }

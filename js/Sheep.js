@@ -43,9 +43,37 @@ class Sheep{
     if ((d < this.width/2) && (d < this.height/2)){
       this.hovered = true;
       // Click - Change State
+      this.changeState();
     }
     else{
       this.hovered = false;
+    }
+
+  }
+
+  changeState(){
+    if(mouseIsPressed){
+      if(this.hoverAnimation === gamesSheepAni){
+        state = `games`;
+      }
+      else if ( this.hoverAnimation === webDesignSheepAni){
+        state = `webDesign`;
+      }
+      else if ( this.hoverAnimation === triDSheepAni){
+        state = `3D`;
+      }
+      else if ( this.hoverAnimation === graphicDesignSheepAni){
+        state = `graphicDesign`;
+      }
+      else if ( this.hoverAnimation === editingSheepAni){
+        state = `editing`;
+      }
+      else if ( this.hoverAnimation === artSheepAni){
+        state = `art`;
+      }
+      else if ( this.hoverAnimation === photographySheepAni){
+        state = `photography`;
+      }
     }
 
   }

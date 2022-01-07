@@ -61,9 +61,9 @@ class Page{
     // Click/interact with Page
     this.active = true;
     // For GitHub
-    this.textBoxX = x - 380;
+    this.textBoxX = x - 320;
     this.textBoxY = y - 150;
-    this.boxWidth = 80;
+    this.boxWidth = 180;
     this.boxHeight = 25;
 
   }
@@ -90,7 +90,7 @@ class Page{
       this.image3 = gamesSheepImg;
       // Text
       this.title = `GAMES & Coding.`;
-      this.subhead = `GitHub`;
+      this.subhead = `Source Code | GitHub`;
       // Text Box
       push();
       fill(42, 0);
