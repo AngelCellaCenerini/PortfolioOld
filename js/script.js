@@ -17,6 +17,8 @@ let logoImage = undefined;
 // X Icon
 let xIcon = undefined;
 let xIconThick = undefined;
+// Play Button
+let playButton = undefined;
 
 // Sheeps
 //Icons
@@ -70,7 +72,7 @@ let page = undefined;
 let slideshow = undefined;
 
 // States - LogoScreen, Homepage, Games, Graphic Design, Web Design, Video Editing, 3D, Photography
-let state = `homepage`;
+let state = `games`;
 
 /**
 Preload Files
@@ -240,6 +242,15 @@ function setup() {
   let iconY = -20;
   slideshow = new Slideshow(x, y, iconX, iconY);
 
+  // Play Button
+  // x = width/2 + 50;
+  // y = height/2;
+  x = width/4 + 15;
+  y = 3*height/5 + 110;
+  x1 = 5*width/6;
+  y1 = height/5 + 20;
+  playButton = new PageButton(x, y, x1, y1);
+
 }
 
 // States
@@ -285,65 +296,77 @@ function draw() {
   else if(state === `games`){
 
     // Page
-    page.update(slideshow);
+    page.update(slideshow, playButton);
     // Navigation Menu
     navigationMenu();
+    // Play Button
+    playButton.update();
     // Slideshow
-    slideshow.update(page);
+    slideshow.update(page, playButton);
+
   }
   else if(state === `graphicDesign`){
 
     // Page
-    page.update(slideshow);
+    page.update(slideshow, playButton);
     // Navigation Menu
     navigationMenu();
     // Slideshow
-    slideshow.update(page);
+    slideshow.update(page, playButton);
   }
   else if(state === `webDesign`){
 
     // Page
-    page.update(slideshow);
+    page.update(slideshow, playButton);
     // Navigation Menu
     navigationMenu();
+    // Play Button
+    playButton.update();
     // Slideshow
-    slideshow.update(page);
+    slideshow.update(page, playButton);
+
   }
   else if(state === `3D`){
 
     // Page
-    page.update(slideshow);
+    page.update(slideshow, playButton);
     // Navigation Menu
     navigationMenu();
+    // Play Button
+    playButton.update();
     // Slideshow
-    slideshow.update(page);
+    slideshow.update(page, playButton);
+
   }
   else if(state === `photography`){
 
     // Page
-    page.update(slideshow);
+    page.update(slideshow, playButton);
     // Navigation Menu
     navigationMenu();
     // Slideshow
-    slideshow.update(page);
+    slideshow.update(page, playButton);
   }
   else if(state === `art`){
 
     // Page
-    page.update(slideshow);
+    page.update(slideshow, playButton);
     // Navigation Menu
     navigationMenu();
     // Slideshow
-    slideshow.update(page);
+    slideshow.update(page, playButton);
   }
   else if(state === `editing`){
 
     // Page
-    page.update(slideshow);
+    page.update(slideshow, playButton);
     // Navigation Menu
     navigationMenu();
+    // Play Button
+    playButton.update();
     // Slideshow
-    slideshow.update(page);
+    slideshow.update(page, playButton);
+
   }
 
 
@@ -354,14 +377,14 @@ function navigationMenu(){
   // Burger Menu
   burgerMenu.update(slideshow);
   // Mavigation Bar
-  navigationBarHomepage.update(burgerMenu, homepage, page);
-  navigationBarGames.update(burgerMenu, homepage, page);
-  navigationBarWebDesign.update(burgerMenu, homepage, page);
-  navigationBar3D.update(burgerMenu, homepage, page);
-  navigationBarDesign.update(burgerMenu, homepage, page);
-  navigationBarPhotography.update(burgerMenu, homepage, page);
-  navigationBarArt.update(burgerMenu, homepage, page);
-  navigationBarEdits.update(burgerMenu, homepage, page);
+  navigationBarHomepage.update(burgerMenu, homepage, page, playButton);
+  navigationBarGames.update(burgerMenu, homepage, page, playButton);
+  navigationBarWebDesign.update(burgerMenu, homepage, page, playButton);
+  navigationBar3D.update(burgerMenu, homepage, page, playButton);
+  navigationBarDesign.update(burgerMenu, homepage, page, playButton);
+  navigationBarPhotography.update(burgerMenu, homepage, page, playButton);
+  navigationBarArt.update(burgerMenu, homepage, page, playButton);
+  navigationBarEdits.update(burgerMenu, homepage, page, playButton);
 }
 
 function resetSheeps(){
@@ -386,7 +409,7 @@ function mousePressed() {
   // Navigation Menu
   navigationMenu();
   // Slideshow
-  slideshow.update(page);
+  slideshow.update(page, playButton);
   slide();
   // Page
   page.setState();

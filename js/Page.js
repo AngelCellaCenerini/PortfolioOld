@@ -67,12 +67,12 @@ class Page{
     this.boxHeight = 25;
 
   }
-  update(slideshow){
+  update(slideshow, playButton){
     this.setState();
     this.reveal();
     this.move();
     if(this.active){
-      this.enlarge(slideshow);     // Pics
+      this.enlarge(slideshow, playButton);     // Pics
       this.hoverButton();          // Plus Button
       this.expand();               // Additional Info on Projects
     }
@@ -125,15 +125,15 @@ class Page{
       to unlock the melody that might
       explain everything.`;
       this.details1 = `Javascript | HTML | CSS
-      Feat. p5.js Library,
+      p5.js Library,
       ResponsiveVoice.js, JSON`;
       this.details2 = `
       Javascript | HTML | CSS
-      Feat. p5.js Library, JSON &
+      p5.js Library, JSON &
       jQuery | jQuery UI`;
       this.details3 = `
       Javascript | HTML | CSS
-      Feat. p5.js Library `;
+      p5.js Library `;
 
     }
     else if(state === `webDesign`){
@@ -153,7 +153,8 @@ class Page{
       this.name3 = `PORTFOLIO`;
       this.description1 = `
       Conventional website layout
-      featuring game mechanincs.`;
+      featuring game mechanincs.
+      Set page zoom to 80% and refresh.`;
       this.description2 = `Dynamic and easy to navigate, CP3's new website embodies
       the passionate commitment of its members by thoroughly
       showcasing its mission and projects.`;
@@ -364,7 +365,7 @@ class Page{
 
   }
 
-  enlarge(slideshow){
+  enlarge(slideshow, playButton){
     // Zoom in/Enlarge Images
     // Check if mouse is Hovering over Image
     // Image Top Right
@@ -412,6 +413,7 @@ class Page{
 
             // Open Slideshow
             slideshow.active = true;
+            playButton.active = false;
 
           }
     }

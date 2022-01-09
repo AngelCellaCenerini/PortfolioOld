@@ -19,13 +19,13 @@ class Slideshow{
     this.active = false;
   }
 
-  update(page){
+  update(page, playButton){
     // Only Active after User "zooms in" pics
     if (this.active){
       this.assignImg(page);
       this.move();
       this.darken();
-      this.close(page);
+      this.close(page, playButton);
       this.display();
     }
   }
@@ -162,7 +162,7 @@ class Slideshow{
     }
   }
 
-  close(page){
+  close(page, playButton){
     // Close Slideshow if User presses 'X' Icon
     let d = dist(this.iconX, this.iconY, mouseX, mouseY);
     if( d < this.iconSize/2 && mouseIsPressed === true){
@@ -171,6 +171,7 @@ class Slideshow{
       this.currentIndex = 0;
       // Reactivate Page
       page.active = true;
+      playButton.active  = true;
       // Reset Values
       this.opacity = 0;
       this.transparency = 10;
