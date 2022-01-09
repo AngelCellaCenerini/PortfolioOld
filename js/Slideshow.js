@@ -82,13 +82,13 @@ class Slideshow{
       // Check which Thumnail Image was Selected
       // Display Relevant Images
       if(page.first){
-        this.images = [gamesSheepImg, graphicDesignSheepImg, webDesignSheepImg];
+        this.images = [logo2, logo3];
       }
       else if(page.second){
-        this.images = [triDSheepImg, graphicDesignSheepImg, triDSheepImg];
+        this.images = [post1, post2, post3, post4];
       }
       else if(page.third){
-        this.images = [photographySheepImg, editingSheepImg, webDesignSheepImg];
+        this.images = [poster2];
       }
     }
 

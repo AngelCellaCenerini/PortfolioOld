@@ -151,6 +151,16 @@ class PageButton{
       this.link2 = '';
       this.link3 = '';
     }
+    else if(state === `graphicDesign`){
+      // Activate Relevant Buttons
+      this.first = false;
+      this.second = true;
+      this.third = false;
+      // Set Links
+      this.link1 = '';
+      this.link2 = 'https://www.cp3montreal.com/articles/cp3newlogo';
+      this.link3 = '';
+    }
   }
 
   openProject(){

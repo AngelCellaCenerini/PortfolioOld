@@ -71,8 +71,21 @@ let page = undefined;
 // Slideshow(s)
 let slideshow = undefined;
 
+// Images
+// Design //
+// Posts
+let post1 = undefined;
+let post2 = undefined;
+let post3 = undefined;
+let post4 = undefined;
+let logo1 = undefined;
+let logo2 = undefined;
+let logo3 = undefined;
+let poster1 = undefined;
+let poster2 = undefined;
+
 // States - LogoScreen, Homepage, Games, Graphic Design, Web Design, Video Editing, 3D, Photography
-let state = `games`;
+let state = `graphicDesign`;
 
 /**
 Preload Files
@@ -108,6 +121,19 @@ function preload() {
   editingSheepAni = loadImage('assets/images/editingAni.gif');
   photographySheepAni = loadImage('assets/images/photAni.gif');
   artSheepAni = loadImage('assets/images/artAni.gif');
+
+  // Images
+  // Design
+  // Posts
+  post1 = loadImage('assets/images/design/des1.png');
+  post2 = loadImage('assets/images/design/des2.png');
+  post3 = loadImage('assets/images/design/des3.png');
+  post4 = loadImage('assets/images/design/des4.png');
+  logo1 = loadImage('assets/images/design/des5.png');
+  logo2 = loadImage('assets/images/design/des6.png');
+  logo3 = loadImage('assets/images/design/des7.png');
+  poster1 = loadImage('assets/images/design/des9.png');
+  poster2 = loadImage('assets/images/design/des8.png');
 
 }
 
@@ -311,6 +337,8 @@ function draw() {
     page.update(slideshow, playButton);
     // Navigation Menu
     navigationMenu();
+    // Play Button
+    playButton.update();
     // Slideshow
     slideshow.update(page, playButton);
   }

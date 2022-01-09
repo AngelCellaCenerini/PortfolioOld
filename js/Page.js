@@ -209,9 +209,9 @@ class Page{
     else if(state === `graphicDesign`){
       // Design
       // Images Thumbnails
-      this.image1 = gamesSheepImg;
-      this.image2 = gamesSheepImg;
-      this.image3 = gamesSheepImg;
+      this.image1 = logo1;
+      this.image2 = post3;
+      this.image3 = poster1;
       // Text
       this.title = `GRAPHIC designs.`;
       this.subhead = `Social Media Posts, Posters & Logos`;
@@ -549,7 +549,6 @@ class Page{
     text(this.name1, this.x + 490, this.y - 250);
 
     // Projects Details (Non-expanded)
-    // textFont(bigShoulderDisplayLighterFont);
     textSize(17);
     // P1
     // Top Right
