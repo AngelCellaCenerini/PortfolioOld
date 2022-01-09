@@ -99,13 +99,13 @@ function preload() {
   artSheepImg = loadImage('assets/images/art.png');
 
   // Animations
-  gamesSheepAni = loadImage('assets/images/LogoButton.png');
-  graphicDesignSheepAni = loadImage('assets/images/LogoButton.png');
-  webDesignSheepAni = loadImage('assets/images/LogoButton.png');
-  triDSheepAni = loadImage('assets/images/LogoButton.png');
-  editingSheepAni = loadImage('assets/images/LogoButton.png');
-  photographySheepAni = loadImage('assets/images/LogoButton.png');
-  artSheepAni = loadImage('assets/images/LogoButton.png');
+  gamesSheepAni = loadImage('assets/images/gamesAn.gif');
+  graphicDesignSheepAni = loadImage('assets/images/designAni.gif');
+  webDesignSheepAni = loadImage('assets/images/webAni.gif');
+  triDSheepAni = loadImage('assets/images/3dAni.gif');
+  editingSheepAni = loadImage('assets/images/editingAni.gif');
+  photographySheepAni = loadImage('assets/images/photAni.gif');
+  artSheepAni = loadImage('assets/images/artAni.gif');
 
 }
 
