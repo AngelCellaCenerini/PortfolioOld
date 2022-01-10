@@ -139,8 +139,8 @@ class Page{
     else if(state === `webDesign`){
       // Web Design
       // Images Thumbnails
-      this.image1 = gamesSheepImg;
-      this.image2 = gamesSheepImg;
+      this.image1 = hybrid1;
+      this.image2 = webDesignSheepImg;
       this.image3 = gamesSheepImg;
       // Text
       this.title = `WEB Designs.`;
@@ -173,9 +173,9 @@ class Page{
     else if(state === `3D`){
       // 3D
       // Images Thumbnails
-      this.image1 = gamesSheepImg;
-      this.image2 = gamesSheepImg;
-      this.image3 = gamesSheepImg;
+      this.image1 = diorama1;
+      this.image2 = kitbash1;
+      this.image3 = sculpt4;
       // Text
       this.title = `3D Projects.`;
       this.subhead = `Ambience & Characters`;
@@ -201,7 +201,8 @@ class Page{
       this.details2 = `
       Sculpted in Blender
       Texture Paint &
-      Adobe Substance 3D Painter`;
+      Adobe Substance 3D Painter
+      Unity`;
       this.details3 = `
       Sculpted in Blender
       Adobe Substance 3D Painter`;
@@ -241,9 +242,9 @@ class Page{
     else if(state === `photography`){
       // Photgraphy
       // Images Thumbnails
-      this.image1 = gamesSheepImg;
-      this.image2 = gamesSheepImg;
-      this.image3 = gamesSheepImg;
+      this.image1 = dq1;
+      this.image2 = photographySheepImg;
+      this.image3 = adam11;
       // Text
       this.title = `PHOTOGRAPY Experiments.`;
       this.subhead = `Exploring techical and expressive routes`;
@@ -268,9 +269,9 @@ class Page{
     else if(state === `art`){
       // Art
       // Images Thumbnails
-      this.image1 = gamesSheepImg;
-      this.image2 = gamesSheepImg;
-      this.image3 = gamesSheepImg;
+      this.image1 = ambience2;
+      this.image2 = character2;
+      this.image3 = anatomy2;
       // Text
       this.title = `JUST SOME Art.`;
       this.subhead = `Personal Side Projects`;
@@ -296,9 +297,9 @@ class Page{
     else if(state === `editing`){
       // Edits
       // Images Thumbnails
-      this.image1 = gamesSheepImg;
-      this.image2 = gamesSheepImg;
-      this.image3 = gamesSheepImg;
+      this.image1 = editingSheepImg;
+      this.image2 = editingSheepImg;
+      this.image3 = editingSheepImg;
       // Text
       this.title = `VIDEO Edits.`;
       this.subhead = `Personal & Promotional Projects`;

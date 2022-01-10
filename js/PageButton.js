@@ -137,8 +137,8 @@ class PageButton{
       this.second = true;
       this.third = false;
       // Set Links
-      this.link1 = '';
-      this.link2 = '';
+      this.link1 = 'https://drive.google.com/file/d/1d1QCPYpYvLLZ1LOsRmaqolCCDsjAQbHD/view?usp=sharing';
+      this.link2 = 'https://drive.google.com/file/d/1fQUsikPSPWTvFzv5e5ZDG7lclyyQmtkt/view?usp=sharing';
       this.link3 = '';
     }
     else if(state === `editing`){

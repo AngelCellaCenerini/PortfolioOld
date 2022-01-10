@@ -73,7 +73,6 @@ let slideshow = undefined;
 
 // Images
 // Design //
-// Posts
 let post1 = undefined;
 let post2 = undefined;
 let post3 = undefined;
@@ -83,9 +82,53 @@ let logo2 = undefined;
 let logo3 = undefined;
 let poster1 = undefined;
 let poster2 = undefined;
+// 3D //
+let kitbash1 = undefined;
+let kitbash2 = undefined;
+let kitbash3 = undefined;
+let kitbash4 = undefined;
+let diorama1 = undefined;
+let diorama2 = undefined;
+let diorama3 = undefined;
+let diorama4 = undefined;
+let diorama5 = undefined;
+let diorama6 = undefined;
+let diorama7 = undefined;
+let sculpt1 = undefined;
+let sculpt2 = undefined;
+let sculpt3 = undefined;
+let sculpt4 = undefined;
+// ART
+let anatomy1 = undefined;
+let anatomy2 = undefined;
+let ambience1 = undefined;
+let ambience2 = undefined;
+let character1 = undefined;
+let character2 = undefined;
+// Photgraphy
+let adam1 = undefined;
+let adam2 = undefined;
+let adam3 = undefined;
+let adam4 = undefined;
+let adam5 = undefined;
+let adam6 = undefined;
+let adam7 = undefined;
+let adam8 = undefined;
+let adam9 = undefined;
+let adam10 = undefined;
+let adam11 = undefined;
+let dq1 = undefined;
+let dq2 = undefined;
+let dq3 = undefined;
+let dq4 = undefined;
+let dq5 = undefined;
+// Web Design
+let hybrid1 = undefined;
+let hybrid2 = undefined;
+let hybrid3 = undefined;
 
 // States - LogoScreen, Homepage, Games, Graphic Design, Web Design, Video Editing, 3D, Photography
-let state = `graphicDesign`;
+let state = `3D`;
 
 /**
 Preload Files
@@ -129,12 +172,58 @@ function preload() {
   post2 = loadImage('assets/images/design/des2.png');
   post3 = loadImage('assets/images/design/des3.png');
   post4 = loadImage('assets/images/design/des4.png');
+  // Logos
   logo1 = loadImage('assets/images/design/des5.png');
   logo2 = loadImage('assets/images/design/des6.png');
   logo3 = loadImage('assets/images/design/des7.png');
+  // Poster
   poster1 = loadImage('assets/images/design/des9.png');
   poster2 = loadImage('assets/images/design/des8.png');
-
+  // 3D
+  // Kitbash
+  kitbash1 = loadImage('assets/images/3d/3D_2.png');
+  kitbash2 = loadImage('assets/images/3d/3D_1.png');
+  kitbash3 = loadImage('assets/images/3d/3D_3.png');
+  kitbash4 = loadImage('assets/images/3d/3D_4.png');
+  diorama1 = loadImage('assets/images/3d/3D_5.png');
+  diorama2 = loadImage('assets/images/3d/3D_6.png');
+  diorama3 = loadImage('assets/images/3d/3D_7.png');
+  diorama4 = loadImage('assets/images/3d/3D_8.png');
+  diorama5 = loadImage('assets/images/3d/3D_9.png');
+  diorama6 = loadImage('assets/images/3d/3D_10.png');
+  diorama7 = loadImage('assets/images/3d/3D_11.png');
+  sculpt1 = loadImage('assets/images/3d/3D_12.png');
+  sculpt2 = loadImage('assets/images/3d/3D_13.png');
+  sculpt3 = loadImage('assets/images/3d/3D_14.png');
+  sculpt4 = loadImage('assets/images/3d/3D_15.png');
+  // Art
+  anatomy1 = loadImage('assets/images/art/art1.png');
+  anatomy2 = loadImage('assets/images/art/art4.png');
+  ambience1 = loadImage('assets/images/art/art2.png');
+  ambience2 = loadImage('assets/images/art/art5.png');
+  character1 = loadImage('assets/images/art/art3.png');
+  character2 = loadImage('assets/images/art/art6.png');
+  // Photgraphy
+  adam1 = loadImage('assets/images/photography/phot1.png');
+  adam2 = loadImage('assets/images/photography/phot2.png');
+  adam3 = loadImage('assets/images/photography/phot3.png');
+  adam4 = loadImage('assets/images/photography/phot4.png');
+  adam5 = loadImage('assets/images/photography/phot5.png');
+  adam6 = loadImage('assets/images/photography/phot6.png');
+  adam7 = loadImage('assets/images/photography/phot7.png');
+  adam8 = loadImage('assets/images/photography/phot8.png');
+  adam9 = loadImage('assets/images/photography/phot9.png');
+  adam10 = loadImage('assets/images/photography/phot10.png');
+  adam11 = loadImage('assets/images/photography/phot11.png');
+  dq1 = loadImage('assets/images/photography/phot12.png');
+  dq2 = loadImage('assets/images/photography/phot13.png');
+  dq3 = loadImage('assets/images/photography/phot14.png');
+  dq4 = loadImage('assets/images/photography/phot15.png');
+  dq5 = loadImage('assets/images/photography/phot16.png');
+  // Web Design
+  hybrid1 = loadImage('assets/images/web/web1.png');
+  hybrid2 = loadImage('assets/images/web/web2.png');
+  hybrid3 = loadImage('assets/images/web/web3.png');
 }
 
 

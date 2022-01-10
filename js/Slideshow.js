@@ -52,7 +52,7 @@ class Slideshow{
       // Check which Thumnail Image was Selected
       // Display Relevant Images
       if(page.first){
-        this.images = [gamesSheepImg, gamesSheepImg, gamesSheepImg];
+        this.images = [hybrid2, hybrid3];
       }
       else if(page.second){
         this.images = [triDSheepImg, graphicDesignSheepImg, triDSheepImg];
@@ -67,13 +67,13 @@ class Slideshow{
       // Check which Thumnail Image was Selected
       // Display Relevant Images
       if(page.first){
-        this.images = [gamesSheepImg, graphicDesignSheepImg, webDesignSheepImg];
+        this.images = [diorama2, diorama3, diorama4, diorama5, diorama6, diorama7];
       }
       else if(page.second){
-        this.images = [triDSheepImg, graphicDesignSheepImg, triDSheepImg];
+        this.images = [kitbash2, kitbash3, kitbash4];
       }
       else if(page.third){
-        this.images = [photographySheepImg, editingSheepImg, webDesignSheepImg];
+        this.images = [sculpt1, sculpt2, sculpt3];
       }
     }
 
@@ -97,13 +97,13 @@ class Slideshow{
       // Check which Thumnail Image was Selected
       // Display Relevant Images
       if(page.first){
-        this.images = [gamesSheepImg, graphicDesignSheepImg, webDesignSheepImg];
+        this.images = [dq2, dq3, dq4, dq5];
       }
       else if(page.second){
         this.images = [triDSheepImg, graphicDesignSheepImg, triDSheepImg];
       }
       else if(page.third){
-        this.images = [photographySheepImg, editingSheepImg, webDesignSheepImg];
+        this.images = [adam1, adam2, adam3, adam4, adam5, adam6, adam7, adam8, adam9, adam10];
       }
     }
 
@@ -112,13 +112,13 @@ class Slideshow{
       // Check which Thumnail Image was Selected
       // Display Relevant Images
       if(page.first){
-        this.images = [gamesSheepImg, graphicDesignSheepImg, webDesignSheepImg];
+        this.images = [ambience1];
       }
       else if(page.second){
-        this.images = [triDSheepImg, graphicDesignSheepImg, triDSheepImg];
+        this.images = [character1];
       }
       else if(page.third){
-        this.images = [photographySheepImg, editingSheepImg, webDesignSheepImg];
+        this.images = [anatomy1];
       }
     }
 
