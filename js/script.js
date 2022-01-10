@@ -127,8 +127,11 @@ let hybrid1 = undefined;
 let hybrid2 = undefined;
 let hybrid3 = undefined;
 
+// Layout
+let layout = undefined;
+
 // States - LogoScreen, Homepage, Games, Graphic Design, Web Design, Video Editing, 3D, Photography
-let state = `logoScreen`;
+let state = `layout`;
 
 /**
 Preload Files
@@ -366,6 +369,15 @@ function setup() {
   y1 = height/5 + 20;
   playButton = new PageButton(x, y, x1, y1);
 
+  // Layout
+  x1 = width/4;
+  y1 = height/2 - 50;
+  let x2 = 3*width/4 - 60;
+  let y2 = height/2 - 50;
+  let x3 = width/4;
+  let y3 = height/2 - 50;
+  layout = new Layout(x1, y1, x2, y2, x3, y3);
+
 }
 
 // States
@@ -484,6 +496,9 @@ function draw() {
     // Slideshow
     slideshow.update(page, playButton);
 
+  }
+  else if(state === `layout`){
+    layout.update();
   }
 
 
