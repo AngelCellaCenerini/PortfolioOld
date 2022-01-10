@@ -128,7 +128,7 @@ let hybrid2 = undefined;
 let hybrid3 = undefined;
 
 // States - LogoScreen, Homepage, Games, Graphic Design, Web Design, Video Editing, 3D, Photography
-let state = `3D`;
+let state = `logoScreen`;
 
 /**
 Preload Files
