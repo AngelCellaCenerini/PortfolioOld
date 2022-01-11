@@ -1,5 +1,5 @@
 class Layout{
-  constructor(x1, y1, x2, y2, x3, y3){
+  constructor(x1, y1, x2, y2, x3, y3, scrollX, scrollY){
 
     // Images
     this.image1 = shark1;
@@ -38,7 +38,9 @@ class Layout{
     Coloring `;
     this.details3 = `
     Blender
-    Substance 3D Painter`;
+
+    Substance
+    3D Painter`;
     // Play Button
     this.buttonX1 = x1 + 2*this.imageWidth/3 - 15;
     this.buttonY1 = y1 + 210;
@@ -86,14 +88,28 @@ class Layout{
     cleaner career, littered
     with domestic (twisted) scenes.`;
     this.description3 = `
-    Biomechanical interpretation of hammerhead shark built
-    via hardsurface tools and components.`;
+    Biomechanical interpretation of
+    hammerhead shark built via
+    hardsurface tools and components.`;
     // Page
     this.firstPage = true;
+    this.active = true;
+    // Scrolling
+    // this.direction = `>`;
+    this.scrollX = scrollX;
+    this.scrollX2 = 0;
+    this.scrollY = scrollY;
+    this.scrollWidth = 100;
+    this.scrollHeight = 90;
   }
 
-  update(){
-    this.addInfo();
+  update(slideshow){
+    // Check if page is active (aka Slideshow is not active)
+    if(this.active){
+      this.addInfo();
+      this.activateSlideshow(slideshow);
+      this.scroll();
+    }
     this.display();
   }
 
@@ -153,19 +169,133 @@ class Layout{
 
   }
 
+  activateSlideshow(slideshow){
+    // Zoom in/Enlarge Images
+    if(
+      // Image 1
+      (mouseX > this.imageX1 - this.imageWidth/3 &&
+      mouseX < this.imageX1 + this.imageWidth/3 &&
+      mouseY > this.imageY1 - this.imageHeight/3 &&
+      mouseY < this.imageY1 + this.imageHeight/3) ||
+      // Image2
+      (mouseX > this.imageX2 - this.imageWidth/3 &&
+      mouseX < this.imageX2 + this.imageWidth/3 &&
+      mouseY > this.imageY2 - this.imageHeight/3 &&
+      mouseY < this.imageY2 + this.imageHeight/3) ||
+      // Image 3
+      (mouseX > this.imageX3 - this.imageWidth/3 &&
+      mouseX < this.imageX3 + this.imageWidth/3 &&
+      mouseY > this.imageY3 - this.imageHeight/3 &&
+      mouseY < this.imageY3 + this.imageHeight/3)){
+
+          // Change Cursor
+          cursor('zoom-in');
+          // Check if Mouse is Pressed
+          if(mouseIsPressed){
+            // Restore Cursor
+            cursor('auto');
+            // Disable Interactivity with current page - elements won't change when hovered over
+            this.active = false;
+            // Assign Images to Thumnails
+            // First
+            if(mouseX > this.imageX1 - this.imageWidth/3 &&
+               mouseX < this.imageX1 + this.imageWidth/3 &&
+               mouseY > this.imageY1 - this.imageHeight/3 &&
+               mouseY < this.imageY1 + this.imageHeight/3){
+              this.first = true;
+            }
+            else{
+              this.first = false;
+            }
+
+            // Second
+            if(mouseX > this.imageX2 - this.imageWidth/3 &&
+               mouseX < this.imageX2 + this.imageWidth/3 &&
+               mouseY > this.imageY2 - this.imageHeight/3 &&
+               mouseY < this.imageY2 + this.imageHeight/3){
+              this.second = true;
+            }
+            else{
+              this.second = false;
+            }
+
+            // Third
+            if(mouseX > this.imageX3 - this.imageWidth/3 &&
+               mouseX < this.imageX3 + this.imageWidth/3 &&
+               mouseY > this.imageY3 - this.imageHeight/3 &&
+               mouseY < this.imageY3 + this.imageHeight/3){
+              this.third = true;
+            }
+            else{
+              this.third = false;
+            }
+
+            // Open Slideshow
+            slideshow.active = true;
+          }
+    }
+    else{
+      // Restore Cursor
+      cursor('auto');
+    }
+  }
+
+  scroll(){
+    push();
+
+    // Scroll among Works
+    if(this.firstPage){
+      // Display
+      // Yellow Text Box
+      fill(253, 221, 107);
+      rect(this.scrollX, this.scrollY, this.scrollWidth, this.scrollHeight);
+      // Text
+      fill(42);
+      textSize(20);
+      textAlign(CENTER, CENTER);
+      text(`>`, this.scrollX - this.scrollWidth/5, this.scrollY);
+    }
+    else{
+      // Display
+      // Yellow Text Box
+      fill(253, 221, 107);
+      rect(this.scrollX2, this.scrollY, this.scrollWidth, this.scrollHeight);
+      // Text
+      fill(42);
+      textSize(20);
+      textAlign(CENTER, CENTER);
+      text(`<`, this.scrollX2 + this.scrollWidth/5, this.scrollY);
+    }
+
+
+    pop();
+
+    // Interact
+    // Scroll Right
+    if((mouseX > this.scrollX - this.scrollWidth/2 &&
+       mouseX < this.scrollX + this.scrollWidth/2 &&
+       mouseY > this.scrollY - this.scrollHeight/2 &&
+       mouseY < this.scrollY + this.scrollHeight/2) && (mouseIsPressed)){
+
+         // Scroll Page
+        this.firstPage = false;
+    }
+
+    // Scroll Left
+    if((mouseX > this.scrollX2 - this.scrollWidth/2 &&
+       mouseX < this.scrollX2 + this.scrollWidth/2 &&
+       mouseY > this.scrollY - this.scrollHeight/2 &&
+       mouseY < this.scrollY + this.scrollHeight/2) && (mouseIsPressed)){
+
+         // Scroll Page
+        this.firstPage = true;
+    }
+
+  }
+
   display(){
 
     push();
-
-      // // Description
-      // textFont(`Courier`);
-      // textAlign(CENTER);
-      // textSize(18);
-      // let descriptionX = width/2;
-      // let descriptionY = 4*height/5;
-      // text(this.description, descriptionX, descriptionY);
-
-    // }
 
     // Third Project
     if(!this.firstPage){
@@ -177,7 +307,7 @@ class Layout{
       textSize(30);
       textAlign(LEFT);
       // Names
-      text(this.name3, this.x3 - this.imageWidth/2, this.y3 - 2*this.imageHeight/3);
+      text(this.name3, this.x3 - this.imageWidth/2, this.y3 - this.imageHeight/2 - 30);
       // Black Text Box
       fill(42);
       rect(this.x3 + 2*this.imageWidth/3 - 15, this.y3, 120, this.imageHeight);
@@ -203,9 +333,9 @@ class Layout{
       ellipse(this.plusButtonX3, this.plusButtonY3, this.plusButtonSize3);
       // PLus Button Text
       fill(42);
-      textAlign(CENTER);false
+      textAlign(CENTER, CENTER);
       textSize(20);
-      text(`+`, this.plusButtonX3, this.plusButtonY3 - 2);
+      text(`+`, this.plusButtonX3, this.plusButtonY3);
 
       // Check if State features Play Button
       if (this.interactive){
@@ -286,10 +416,10 @@ class Layout{
       ellipse(this.plusButtonX2, this.plusButtonY2, this.plusButtonSize2);
       // PLus Button Text
       fill(42);
-      textAlign(CENTER);
+      textAlign(CENTER, CENTER);
       textSize(20);
-      text(`+`, this.plusButtonX1, this.plusButtonY1 - 2);
-      text(`+`, this.plusButtonX2, this.plusButtonY2 - 2);
+      text(`+`, this.plusButtonX1, this.plusButtonY1);
+      text(`+`, this.plusButtonX2, this.plusButtonY2);
     }
 
 

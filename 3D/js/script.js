@@ -10,6 +10,8 @@ author, and this description to match your project!
 
 // Page Layout
 let layout = undefined;
+// Slideshow
+let slideshow = undefined;
 
 // Images
 let shark1 = undefined;
@@ -25,8 +27,7 @@ function preload() {
   // Upload Images
   shark1 = loadImage('assets/images/shark1.png');
   shark2 = loadImage('assets/images/shark2.png');
-  shark3 = loadImage('assets/images/shark3.png');
-  shark4 = loadImage('assets/images/shark4.png');
+  shark3 = loadImage('assets/images/shark4.png');
 
 }
 
@@ -50,7 +51,16 @@ function setup() {
   let y2 = height/2 - 50;
   let x3 = width/4 - 30;
   let y3 = height/2 - 50;
-  layout = new Layout(x1, y1, x2, y2, x3, y3);
+  let scrollX = width;
+  let scrollY = 7*height/8 + 10;
+  layout = new Layout(x1, y1, x2, y2, x3, y3, scrollX, scrollY);
+
+  // Slideshow(s)
+  let x = width/2;
+  let y = height/2;
+  let iconX = width/12;
+  let iconY = -20;
+  slideshow = new Slideshow(x, y, iconX, iconY);
 }
 
 
@@ -63,6 +73,40 @@ function draw() {
   background(254, 253, 249);
 
   // Display Page
-  layout.update();
+  layout.update(slideshow);
 
+  // Slideshow
+  slideshow.update(layout);
+
+  // Manage Navigation Menu
+  let navigationMenu = document.getElementById('navigation-menu');
+  let linkedInIcon = document.getElementById('linkedIn');
+  if(slideshow.active){
+    navigationMenu.style.visibility = `hidden`;
+    linkedInIcon.style.visibility = `hidden`;
+  }
+  else{
+    navigationMenu.style.visibility = `visible`;
+    linkedInIcon.style.visibility = `visible`;
+  }
+
+}
+
+// p5 Events
+function mousePressed() {
+  // Slideshow
+  slideshow.update(layout);
+  slide();
+
+}
+
+function slide(){
+    // Slide along Images
+    let d = dist(slideshow.arrowX, slideshow.arrowY, mouseX, mouseY);
+    if ( d < slideshow.iconSize/2 && mouseIsPressed === true){
+      slideshow.currentIndex ++;
+      if (slideshow.currentIndex >= slideshow.images.length){
+        slideshow.currentIndex = 0;
+      }
+  }
 }
