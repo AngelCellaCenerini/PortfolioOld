@@ -110,6 +110,7 @@ class Layout{
     // Check if page is active (aka Slideshow is not active)
     if(this.active){
       this.addInfo();
+      // this.play();
       this.activateSlideshow(slideshow);
       this.scroll();
     }
@@ -170,6 +171,35 @@ class Layout{
       }
     }
 
+  }
+
+  play(){
+    // Open Window by Clciking Play Button
+    if(
+    // Button 1
+    (mouseX > this.buttonX1 - this.buttonWidth/2 &&
+    mouseX < this.buttonX1 + this.buttonWidth/2 &&
+    mouseY > this.buttonY1 - this.buttonHeight/2 &&
+    mouseY < this.buttonY1 + this.buttonHeight/2) ||
+    // Button 2
+    (mouseX > this.buttonX2 - this.buttonWidth/2 &&
+    mouseX < this.buttonX2 + this.buttonWidth/2 &&
+    mouseY > this.buttonY2 - this.buttonHeight/2 &&
+    mouseY < this.buttonY2 + this.buttonHeight/2) ||
+    // Button 3
+    (mouseX > this.buttonX3 - this.buttonWidth/2 &&
+    mouseX < this.buttonX3 + this.buttonWidth/2 &&
+    mouseY > this.buttonY3 - this.buttonHeight/2 &&
+    mouseY < this.buttonY3 + this.buttonHeight/2) ){
+
+      console.log(`clicked`);
+      // Restore Cursor
+      cursor('pointer');
+    }
+    else{
+      // Restore Cursor
+      cursor('auto');
+    }
   }
 
   activateSlideshow(slideshow){
