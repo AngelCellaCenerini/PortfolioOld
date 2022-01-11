@@ -36,10 +36,10 @@ class Slideshow{
       // Check which Thumnail Image was Selected
       // Display Relevant Images
       if(layout.first){
-        this.images = [shark1, shark2, shark3];
+        this.images = [sculpt1, sculpt2, sculpt3];
       }
       else if(layout.second){
-        this.images = [shark1, shark2, shark3];
+        this.images = [diorama1, diorama2, diorama3, diorama4, diorama5];
       }
       else if(layout.third){
         this.images = [shark1, shark2, shark3];

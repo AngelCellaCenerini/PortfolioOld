@@ -17,7 +17,14 @@ let slideshow = undefined;
 let shark1 = undefined;
 let shark2 = undefined;
 let shark3 = undefined;
-let shark4 = undefined;
+let diorama1 = undefined;
+let diorama2 = undefined;
+let diorama3 = undefined;
+let diorama4 = undefined;
+let diorama5 = undefined;
+let sculpt1 = undefined;
+let sculpt2 = undefined;
+let sculpt3 = undefined;
 
 /**
 Description of preload
@@ -28,6 +35,14 @@ function preload() {
   shark1 = loadImage('assets/images/shark1.png');
   shark2 = loadImage('assets/images/shark2.png');
   shark3 = loadImage('assets/images/shark4.png');
+  diorama1 = loadImage('assets/images/diorama1.png');
+  diorama2 = loadImage('assets/images/diorama2.png');
+  diorama3 = loadImage('assets/images/diorama3.png');
+  diorama4 = loadImage('assets/images/diorama4.png');
+  diorama5 = loadImage('assets/images/diorama5.png');
+  sculpt1 = loadImage('assets/images/sculpt1.png');
+  sculpt2 = loadImage('assets/images/sculpt2.png');
+  sculpt3 = loadImage('assets/images/sculpt3.png');
 
 }
 
