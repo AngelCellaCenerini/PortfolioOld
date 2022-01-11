@@ -13,6 +13,9 @@ class Layout{
     this.imageY3 = y3;
     this.imageWidth = 500;
     this.imageHeight = 375;
+    this.first = false;
+    this.second = false;
+    this.third = false;
     // Text
     this.x1 = x1;
     this.y1 = y1;
