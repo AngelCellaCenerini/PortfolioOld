@@ -51,9 +51,6 @@ class Layout{
     this.buttonY2 = y2 + 210;
     this.buttonX3 = x3 + 2*this.imageWidth/3 - 15;
     this.buttonY3 = y3 + 210;
-    this.buttonWidth = 120;
-    this.buttonHeight = 30;
-    this.text = `PLAY`;
     this.interactive = true;
     // More Button
     this.plusButtonX1 = x1 - this.imageWidth/3;
@@ -68,7 +65,7 @@ class Layout{
     this.growth1 = 1;
     this.growth2 = 1;
     this.growth3 = 1;
-    this.hovering = false;
+    // this.hovering = false;
     // Descriptions
     this.expanded1 = false;
     this.descriptionX1 = x1;
@@ -111,7 +108,7 @@ class Layout{
     // Check if page is active (aka Slideshow is not active)
     if(this.active){
       this.addInfo();
-      this.play();
+      // this.play();
       this.activateSlideshow(slideshow);
       this.scroll();
     }
@@ -174,52 +171,70 @@ class Layout{
 
   }
 
-  play(){
-    // Open Window by Clciking Play Button
-    if(
-    // Button 1
-    (mouseX > this.buttonX1 - this.buttonWidth/2 &&
-    mouseX < this.buttonX1 + this.buttonWidth/2 &&
-    mouseY > this.buttonY1 - this.buttonHeight/2 &&
-    mouseY < this.buttonY1 + this.buttonHeight/2) ||
-    // Button 2
-    (mouseX > this.buttonX2 - this.buttonWidth/2 &&
-    mouseX < this.buttonX2 + this.buttonWidth/2 &&
-    mouseY > this.buttonY2 - this.buttonHeight/2 &&
-    mouseY < this.buttonY2 + this.buttonHeight/2) ||
-    // Button 3
-    (mouseX > this.buttonX3 - this.buttonWidth/2 &&
-    mouseX < this.buttonX3 + this.buttonWidth/2 &&
-    mouseY > this.buttonY3 - this.buttonHeight/2 &&
-    mouseY < this.buttonY3 + this.buttonHeight/2) ){
-
-          // cursor('pointer');
-
-      // console.log(`clicked`);
-      // Change Cursor
-      this.hovering = true;
-      cursor('pointer');
-    }
-    else{
-      this.hovering = false;
-      if (!this.hovering){
-        // Restore Cursor
-        cursor('auto');
-      }
-    }
-    // if(this.firstPage){
-    //   if((mouseX > this.buttonX1 - this.buttonWidth/3 &&
-    //   mouseX < this.buttonX1 + this.buttonWidth/3 &&
-    //   mouseY > this.buttonY1 - this.buttonHeight/3 &&
-    //   mouseY < this.buttonY1 + this.buttonHeight/3) && (this.firstPage)){
-    //     console.log(`clicked`);
-    //     cursor('grab');
-    //
-    //   }
-    // }
-
-
-  }
+  // play(){
+  //   // Open Window by Clciking Play Button
+  //   if(
+  //   // Button 1
+  //   (mouseX > this.buttonX1 - this.buttonWidth/2 &&
+  //   mouseX < this.buttonX1 + this.buttonWidth/2 &&
+  //   mouseY > this.buttonY1 - this.buttonHeight/2 &&
+  //   mouseY < this.buttonY1 + this.buttonHeight/2) ||
+  //   // Button 2
+  //   (mouseX > this.buttonX2 - this.buttonWidth/2 &&
+  //   mouseX < this.buttonX2 + this.buttonWidth/2 &&
+  //   mouseY > this.buttonY2 - this.buttonHeight/2 &&
+  //   mouseY < this.buttonY2 + this.buttonHeight/2) ||
+  //   // Button 3
+  //   (mouseX > this.buttonX3 - this.buttonWidth/2 &&
+  //   mouseX < this.buttonX3 + this.buttonWidth/2 &&
+  //   mouseY > this.buttonY3 - this.buttonHeight/2 &&
+  //   mouseY < this.buttonY3 + this.buttonHeight/2) ){
+  //
+  //     // Change Cursor
+  //     // this.hovering = true;
+  //     cursor('pointer');
+  //
+  //     // Open Project pages
+  //     if(mousePressed){
+  //       if(this.firstPage){
+  //         // Click First Button
+  //         if(mouseX > this.buttonX1 - this.buttonWidth/2 &&
+  //         mouseX < this.buttonX1 + this.buttonWidth/2 &&
+  //         mouseY > this.buttonY1 - this.buttonHeight/2 &&
+  //         mouseY < this.buttonY1 + this.buttonHeight/2){
+  //           // Open Window
+  //           window.open('https://drive.google.com/file/d/1d1QCPYpYvLLZ1LOsRmaqolCCDsjAQbHD/view?usp=sharing');
+  //         }
+  //         // Click Second Button
+  //         else if(mouseX > this.buttonX2 - this.buttonWidth/2 &&
+  //         mouseX < this.buttonX2 + this.buttonWidth/2 &&
+  //         mouseY > this.buttonY2 - this.buttonHeight/2 &&
+  //         mouseY < this.buttonY2 + this.buttonHeight/2){
+  //           // Open Window
+  //           window.open('https://drive.google.com/file/d/1fQUsikPSPWTvFzv5e5ZDG7lclyyQmtkt/view?usp=sharing');
+  //         }
+  //       }
+  //       // else{
+  //       //   // Click Third Button
+  //       //   if(mouseX > this.buttonX3 - this.buttonWidth/2 &&
+  //       //   mouseX < this.buttonX3 + this.buttonWidth/2 &&
+  //       //   mouseY > this.buttonY3 - this.buttonHeight/2 &&
+  //       //   mouseY < this.buttonY3 + this.buttonHeight/2){
+  //       //     // Open Window
+  //       //     window.open('https://www.w3schools.com/jsref/met_win_open.asp');
+  //       //   }
+  //       //
+  //       // }
+  //     }
+  //   }
+  //   else{
+  //     this.hovering = false;
+  //     if (!this.hovering){
+  //       // Restore Cursor
+  //       cursor('auto');
+  //     }
+  //   }
+  // }
 
   activateSlideshow(slideshow){
     // Zoom in/Enlarge Images
@@ -241,7 +256,7 @@ class Layout{
       mouseY < this.imageY3 + this.imageHeight/3)){
 
 
-          this.hovering = true;
+          // this.hovering = true;
           // Change Cursor
           cursor('zoom-in');
           // Check if Mouse is Pressed
@@ -261,7 +276,7 @@ class Layout{
             }
             else{
               this.first = false;
-              this.hovering = false;
+              // this.hovering = false;
             }
 
             // Second
@@ -273,7 +288,7 @@ class Layout{
             }
             else{
               this.second = false;
-              this.hovering = false;
+              // this.hovering = false;
             }
 
             // Third
@@ -285,7 +300,7 @@ class Layout{
             }
             else{
               this.third = false;
-              this.hovering = false;
+              // this.hovering = false;
             }
 
             // Open Slideshow
@@ -293,10 +308,10 @@ class Layout{
           }
     }
     else{
-      if(!this.hovering){
+      // if(!this.hovering){
         // Restore Cursor
         cursor('auto');
-      }
+      // }
     }
   }
 
@@ -400,13 +415,13 @@ class Layout{
       // Check if State features Play Button
       if (this.interactive){
         // Play Button
-        fill(253, 221, 107);
-        rect(this.buttonX3, this.buttonY3, this.buttonWidth, this.buttonHeight);
-        // Play Button Text
-        fill(42);
-        textSize(20);
-        textAlign(CENTER, CENTER);
-        text(this.text, this.buttonX3, this.buttonY3);
+        // Button 3
+        document.getElementById("button3").style.visibility = `visible`;
+        document.getElementById("button3").style.left = `${0 + this.buttonX3 - 60}px`;
+        document.getElementById("button3").style.top = `${0 + this.buttonY3 - 15}px`;
+        // Hide Other Buttons
+        document.getElementById("button1").style.visibility = `hidden`;
+        document.getElementById("button2").style.visibility = `hidden`;
       }
 
     }
@@ -436,15 +451,16 @@ class Layout{
       // Check if State features Play Button
       if (this.interactive){
         // Play Button
-        fill(253, 221, 107);
-        rect(this.buttonX1, this.buttonY1, this.buttonWidth, this.buttonHeight);
-        rect(this.buttonX2, this.buttonY2, this.buttonWidth, this.buttonHeight);
-        // Play Button Text
-        fill(42);
-        textSize(20);
-        textAlign(CENTER, CENTER);
-        text(this.text, this.buttonX1, this.buttonY1);
-        text(this.text, this.buttonX2, this.buttonY2);
+        // Button 1
+        document.getElementById("button1").style.visibility = `visible`;
+        document.getElementById("button1").style.left = `${0 + this.buttonX1 - 60}px`;
+        document.getElementById("button1").style.top = `${0 + this.buttonY1 - 15}px`;
+        // Button 2
+        document.getElementById("button2").style.visibility = `visible`;
+        document.getElementById("button2").style.left = `${0 + this.buttonX2 - 60}px`;
+        document.getElementById("button2").style.top = `${0 + this.buttonY2 - 15}px`;
+        // Hide Other Button
+        document.getElementById("button3").style.visibility = `hidden`;
       }
 
       // Description 1
