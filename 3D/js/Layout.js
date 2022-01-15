@@ -68,6 +68,7 @@ class Layout{
     this.growth1 = 1;
     this.growth2 = 1;
     this.growth3 = 1;
+    this.hovering = false;
     // Descriptions
     this.expanded1 = false;
     this.descriptionX1 = x1;
@@ -110,7 +111,7 @@ class Layout{
     // Check if page is active (aka Slideshow is not active)
     if(this.active){
       this.addInfo();
-      // this.play();
+      this.play();
       this.activateSlideshow(slideshow);
       this.scroll();
     }
@@ -192,14 +193,32 @@ class Layout{
     mouseY > this.buttonY3 - this.buttonHeight/2 &&
     mouseY < this.buttonY3 + this.buttonHeight/2) ){
 
-      console.log(`clicked`);
-      // Restore Cursor
+          // cursor('pointer');
+
+      // console.log(`clicked`);
+      // Change Cursor
+      this.hovering = true;
       cursor('pointer');
     }
     else{
-      // Restore Cursor
-      cursor('auto');
+      this.hovering = false;
+      if (!this.hovering){
+        // Restore Cursor
+        cursor('auto');
+      }
     }
+    // if(this.firstPage){
+    //   if((mouseX > this.buttonX1 - this.buttonWidth/3 &&
+    //   mouseX < this.buttonX1 + this.buttonWidth/3 &&
+    //   mouseY > this.buttonY1 - this.buttonHeight/3 &&
+    //   mouseY < this.buttonY1 + this.buttonHeight/3) && (this.firstPage)){
+    //     console.log(`clicked`);
+    //     cursor('grab');
+    //
+    //   }
+    // }
+
+
   }
 
   activateSlideshow(slideshow){
@@ -221,6 +240,8 @@ class Layout{
       mouseY > this.imageY3 - this.imageHeight/3 &&
       mouseY < this.imageY3 + this.imageHeight/3)){
 
+
+          this.hovering = true;
           // Change Cursor
           cursor('zoom-in');
           // Check if Mouse is Pressed
@@ -231,14 +252,16 @@ class Layout{
             this.active = false;
             // Assign Images to Thumnails
             // First
-            if(mouseX > this.imageX1 - this.imageWidth/3 &&
+            if((mouseX > this.imageX1 - this.imageWidth/3 &&
                mouseX < this.imageX1 + this.imageWidth/3 &&
                mouseY > this.imageY1 - this.imageHeight/3 &&
-               mouseY < this.imageY1 + this.imageHeight/3){
+               mouseY < this.imageY1 + this.imageHeight/3) && (this.firstPage)){
               this.first = true;
+
             }
             else{
               this.first = false;
+              this.hovering = false;
             }
 
             // Second
@@ -250,17 +273,19 @@ class Layout{
             }
             else{
               this.second = false;
+              this.hovering = false;
             }
 
             // Third
-            if(mouseX > this.imageX3 - this.imageWidth/3 &&
+            if((mouseX > this.imageX3 - this.imageWidth/3 &&
                mouseX < this.imageX3 + this.imageWidth/3 &&
                mouseY > this.imageY3 - this.imageHeight/3 &&
-               mouseY < this.imageY3 + this.imageHeight/3){
+               mouseY < this.imageY3 + this.imageHeight/3) && (!this.firstPage)){
               this.third = true;
             }
             else{
               this.third = false;
+              this.hovering = false;
             }
 
             // Open Slideshow
@@ -268,8 +293,10 @@ class Layout{
           }
     }
     else{
-      // Restore Cursor
-      cursor('auto');
+      if(!this.hovering){
+        // Restore Cursor
+        cursor('auto');
+      }
     }
   }
 

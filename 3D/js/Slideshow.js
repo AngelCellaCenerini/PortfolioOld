@@ -47,6 +47,8 @@ class Slideshow{
 
       // Assign Image
       this.currentImage = this.images[this.currentIndex];
+      console.log(layout.first);
+      console.log(layout.third);
   }
 
   move(){
