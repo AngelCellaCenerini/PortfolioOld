@@ -99,6 +99,11 @@ function draw() {
   if(slideshow.active){
     navigationMenu.style.visibility = `hidden`;
     linkedInIcon.style.visibility = `hidden`;
+    // Hide Other Buttons
+    document.getElementById("button1").style.visibility = `hidden`;
+    document.getElementById("button2").style.visibility = `hidden`;
+    document.getElementById("button3").style.visibility = `hidden`;
+
   }
   else{
     navigationMenu.style.visibility = `visible`;

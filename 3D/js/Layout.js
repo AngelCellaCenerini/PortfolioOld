@@ -33,7 +33,9 @@ class Layout{
     Paint
 
     Substance
-    3D Painter`;
+    3D Painter
+
+    Unity`;
     this.details2 = `
     Blender
 
