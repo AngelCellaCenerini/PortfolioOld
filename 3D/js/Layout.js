@@ -96,7 +96,6 @@ class Layout{
     this.firstPage = true;
     this.active = true;
     // Scrolling
-    // this.direction = `>`;
     this.scrollX = scrollX;
     this.scrollX2 = 0;
     this.scrollY = scrollY;
@@ -416,9 +415,9 @@ class Layout{
       if (this.interactive){
         // Play Button
         // Button 3
-        document.getElementById("button3").style.visibility = `visible`;
-        document.getElementById("button3").style.left = `${0 + this.buttonX3 - 60}px`;
-        document.getElementById("button3").style.top = `${0 + this.buttonY3 - 15}px`;
+        // document.getElementById("button3").style.visibility = `visible`;
+        // document.getElementById("button3").style.left = `${0 + this.buttonX3 - 60}px`;
+        // document.getElementById("button3").style.top = `${0 + this.buttonY3 - 15}px`;
         // Hide Other Buttons
         document.getElementById("button1").style.visibility = `hidden`;
         document.getElementById("button2").style.visibility = `hidden`;
