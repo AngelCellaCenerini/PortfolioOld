@@ -18,12 +18,45 @@ body {
   height: 100vh; /* Body is the height of the viewport */
   overflow: hidden; /* Hide anything that goes off the window size */
   background-color: #FEFDF9;
-  /* font-family: monospace; */
+  font-family: monospace;
 }
 
-#email{
+div {
   position: absolute;
-  margin-left: 40px;
+  display: flex;
+  justify-content:space-around;
+  width: 50vw;
+  margin-left: 25vw;
   margin-top: 85vh;
-  visibility: hidden;
+  visibility: visible;
+  font-size: 13.5px;
 }
+
+a{
+  text-decoration: none;
+  color: #343434;
+  font-family: monospace;
+  /* font-size: 15px; */
+}
+.navigation:hover {
+  /* text-decoration: underline; */
+  color: #FEFDF9;
+  background-color: #343434;
+}
+
+#linkedIn{
+  position: absolute;
+  margin-left: 20vw;
+  margin-top: 82vh;
+  visibility: visible;
+}
+#linkedIn: hover{
+text-decoration:none;
+}
+
+/* #name{
+  position:absolute;
+  font-size: 20px;
+  margin-left: 7vw;
+  margin-top: 7vw;
+} */

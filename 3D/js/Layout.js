@@ -79,7 +79,6 @@ class Layout{
     this.descriptionX3 = x3;
     this.descriptionY3 =  y3;
     this.descriptionOpacity = 200;
-    this.transparencyOpacity = 10;
     this.description = undefined;
     this.description1 = `
     Feathered humanoid character.
@@ -103,17 +102,22 @@ class Layout{
     this.scrollY = scrollY;
     this.scrollWidth = 100;
     this.scrollHeight = 90;
+    // // Fading Effect
+    // this.scrolled = false;
+    // this.timer = 0;
+    // this.opacity = 0;
+    // this.transparency = 20;
   }
 
   update(slideshow){
     // Check if page is active (aka Slideshow is not active)
     if(this.active){
       this.addInfo();
-      // this.play();
       this.activateSlideshow(slideshow);
       this.scroll();
     }
     this.display();
+    // this.fadingEffect();
   }
 
   addInfo(){
@@ -172,89 +176,24 @@ class Layout{
 
   }
 
-  // play(){
-  //   // Open Window by Clciking Play Button
-  //   if(
-  //   // Button 1
-  //   (mouseX > this.buttonX1 - this.buttonWidth/2 &&
-  //   mouseX < this.buttonX1 + this.buttonWidth/2 &&
-  //   mouseY > this.buttonY1 - this.buttonHeight/2 &&
-  //   mouseY < this.buttonY1 + this.buttonHeight/2) ||
-  //   // Button 2
-  //   (mouseX > this.buttonX2 - this.buttonWidth/2 &&
-  //   mouseX < this.buttonX2 + this.buttonWidth/2 &&
-  //   mouseY > this.buttonY2 - this.buttonHeight/2 &&
-  //   mouseY < this.buttonY2 + this.buttonHeight/2) ||
-  //   // Button 3
-  //   (mouseX > this.buttonX3 - this.buttonWidth/2 &&
-  //   mouseX < this.buttonX3 + this.buttonWidth/2 &&
-  //   mouseY > this.buttonY3 - this.buttonHeight/2 &&
-  //   mouseY < this.buttonY3 + this.buttonHeight/2) ){
-  //
-  //     // Change Cursor
-  //     // this.hovering = true;
-  //     cursor('pointer');
-  //
-  //     // Open Project pages
-  //     if(mousePressed){
-  //       if(this.firstPage){
-  //         // Click First Button
-  //         if(mouseX > this.buttonX1 - this.buttonWidth/2 &&
-  //         mouseX < this.buttonX1 + this.buttonWidth/2 &&
-  //         mouseY > this.buttonY1 - this.buttonHeight/2 &&
-  //         mouseY < this.buttonY1 + this.buttonHeight/2){
-  //           // Open Window
-  //           window.open('https://drive.google.com/file/d/1d1QCPYpYvLLZ1LOsRmaqolCCDsjAQbHD/view?usp=sharing');
-  //         }
-  //         // Click Second Button
-  //         else if(mouseX > this.buttonX2 - this.buttonWidth/2 &&
-  //         mouseX < this.buttonX2 + this.buttonWidth/2 &&
-  //         mouseY > this.buttonY2 - this.buttonHeight/2 &&
-  //         mouseY < this.buttonY2 + this.buttonHeight/2){
-  //           // Open Window
-  //           window.open('https://drive.google.com/file/d/1fQUsikPSPWTvFzv5e5ZDG7lclyyQmtkt/view?usp=sharing');
-  //         }
-  //       }
-  //       // else{
-  //       //   // Click Third Button
-  //       //   if(mouseX > this.buttonX3 - this.buttonWidth/2 &&
-  //       //   mouseX < this.buttonX3 + this.buttonWidth/2 &&
-  //       //   mouseY > this.buttonY3 - this.buttonHeight/2 &&
-  //       //   mouseY < this.buttonY3 + this.buttonHeight/2){
-  //       //     // Open Window
-  //       //     window.open('https://www.w3schools.com/jsref/met_win_open.asp');
-  //       //   }
-  //       //
-  //       // }
-  //     }
-  //   }
-  //   else{
-  //     this.hovering = false;
-  //     if (!this.hovering){
-  //       // Restore Cursor
-  //       cursor('auto');
-  //     }
-  //   }
-  // }
-
   activateSlideshow(slideshow){
     // Zoom in/Enlarge Images
     if(
       // Image 1
-      (mouseX > this.imageX1 - this.imageWidth/3 &&
-      mouseX < this.imageX1 + this.imageWidth/3 &&
-      mouseY > this.imageY1 - this.imageHeight/3 &&
-      mouseY < this.imageY1 + this.imageHeight/3) ||
+      (mouseX > this.imageX1 - 2*this.imageWidth/5 &&
+      mouseX < this.imageX1 + 2*this.imageWidth/5 &&
+      mouseY > this.imageY1 - 2*this.imageHeight/5 &&
+      mouseY < this.imageY1 + 2*this.imageHeight/5) ||
       // Image2
-      (mouseX > this.imageX2 - this.imageWidth/3 &&
-      mouseX < this.imageX2 + this.imageWidth/3 &&
-      mouseY > this.imageY2 - this.imageHeight/3 &&
-      mouseY < this.imageY2 + this.imageHeight/3) ||
+      (mouseX > this.imageX2 - 2*this.imageWidth/5 &&
+      mouseX < this.imageX2 + 2*this.imageWidth/5 &&
+      mouseY > this.imageY2 - 2*this.imageHeight/5 &&
+      mouseY < this.imageY2 + 2*this.imageHeight/5) ||
       // Image 3
-      (mouseX > this.imageX3 - this.imageWidth/3 &&
-      mouseX < this.imageX3 + this.imageWidth/3 &&
-      mouseY > this.imageY3 - this.imageHeight/3 &&
-      mouseY < this.imageY3 + this.imageHeight/3)){
+      (mouseX > this.imageX3 - 2*this.imageWidth/5 &&
+      mouseX < this.imageX3 + 2*this.imageWidth/5 &&
+      mouseY > this.imageY3 - 2*this.imageHeight/5 &&
+      mouseY < this.imageY3 + 2*this.imageHeight/5)){
 
 
           // this.hovering = true;
@@ -268,10 +207,10 @@ class Layout{
             this.active = false;
             // Assign Images to Thumnails
             // First
-            if((mouseX > this.imageX1 - this.imageWidth/3 &&
-               mouseX < this.imageX1 + this.imageWidth/3 &&
-               mouseY > this.imageY1 - this.imageHeight/3 &&
-               mouseY < this.imageY1 + this.imageHeight/3) && (this.firstPage)){
+            if((mouseX > this.imageX1 - 2*this.imageWidth/5 &&
+               mouseX < this.imageX1 + 2*this.imageWidth/5 &&
+               mouseY > this.imageY1 - 2*this.imageHeight/5 &&
+               mouseY < this.imageY1 + 2*this.imageHeight/5) && (this.firstPage)){
               this.first = true;
 
             }
@@ -281,10 +220,10 @@ class Layout{
             }
 
             // Second
-            if(mouseX > this.imageX2 - this.imageWidth/3 &&
-               mouseX < this.imageX2 + this.imageWidth/3 &&
-               mouseY > this.imageY2 - this.imageHeight/3 &&
-               mouseY < this.imageY2 + this.imageHeight/3){
+            if(mouseX > this.imageX2 - 2*this.imageWidth/5 &&
+               mouseX < this.imageX2 + 2*this.imageWidth/5 &&
+               mouseY > this.imageY2 - 2*this.imageHeight/5 &&
+               mouseY < this.imageY2 + 2*this.imageHeight/5){
               this.second = true;
             }
             else{
@@ -293,10 +232,10 @@ class Layout{
             }
 
             // Third
-            if((mouseX > this.imageX3 - this.imageWidth/3 &&
-               mouseX < this.imageX3 + this.imageWidth/3 &&
-               mouseY > this.imageY3 - this.imageHeight/3 &&
-               mouseY < this.imageY3 + this.imageHeight/3) && (!this.firstPage)){
+            if((mouseX > this.imageX3 - 2*this.imageWidth/5 &&
+               mouseX < this.imageX3 + 2*this.imageWidth/5 &&
+               mouseY > this.imageY3 - 2*this.imageHeight/5 &&
+               mouseY < this.imageY3 + 2*this.imageHeight/5) && (!this.firstPage)){
               this.third = true;
             }
             else{
@@ -355,6 +294,7 @@ class Layout{
 
          // Scroll Page
         this.firstPage = false;
+        // this.scrolled = true;
     }
 
     // Scroll Left
@@ -365,6 +305,7 @@ class Layout{
 
          // Scroll Page
         this.firstPage = true;
+        // this.scrolled = true;
     }
 
   }
@@ -503,4 +444,30 @@ class Layout{
     pop();
 
   }
+
+  // fadingEffect(){
+  //
+  //   if(this.scrolled){
+  //     // Fade In
+  //     if (this.opacity <= 0){
+  //       this.opacity = this.opacity + this.transparency;
+  //     }
+  //     else if(this.opacity >= 255){
+  //       // Fade Out
+  //       this.opacity = this.opacity - this.transparency;
+  //       if(this.opacity <= 0){
+  //         this.scrolled = false;
+  //       }
+  //     }
+  //   }
+  //
+  //
+  //
+  //
+  //   push();
+  //   // Display White Shape
+  //   fill(254, 253, 249, this.opacity);
+  //   rect(width/2, height/3, width, height);
+  //   pop();
+  // }
 }

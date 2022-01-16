@@ -27,13 +27,13 @@ div {
   margin-left: 25vw;
   margin-top: 88vh;
   visibility: visible;
+  font-size: 13.5px;
 }
 
 a{
   text-decoration: none;
   color: #343434;
   font-family: monospace;
-  font-size: 15px;
 }
 a:hover {
   text-decoration: underline;
@@ -42,7 +42,7 @@ a:hover {
 #linkedIn{
   position: absolute;
   margin-left: 20vw;
-  margin-top: 85vh;
+  margin-top: 82vh;
   visibility: visible;
 }
 
