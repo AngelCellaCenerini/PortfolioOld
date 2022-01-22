@@ -1,5 +1,5 @@
 class Layout{
-  constructor(x1, y1, x2, y2, x3, y3, scrollX, scrollY){
+  constructor(x1, y1, x2, y2, x3, y3, scrollX, scrollX2, scrollY){
 
     // Images
     this.image1 = sculpt1;
@@ -98,12 +98,14 @@ class Layout{
     this.active = true;
     // Scrolling
     this.scrollX = scrollX;
-    this.scrollX2 = 0;
+    this.scrollActive = true;
+    this.scrollX2 = scrollX2;
+    this.scroll2Active = false;
     this.scrollY = scrollY;
-    this.scrollWidth = 100;
-    this.scrollHeight = 90;
+    this.scrollWidth = 40;
+    this.scrollHeight = 19;
     // // Fading Effect
-    // this.scrolled = false;
+    this.scrolled = false;
     // this.timer = 0;
     // this.opacity = 0;
     // this.transparency = 20;
@@ -115,6 +117,7 @@ class Layout{
       this.addInfo();
       this.activateSlideshow(slideshow);
       this.scroll();
+      this.animate();
     }
     this.display();
     // this.fadingEffect();
@@ -259,55 +262,108 @@ class Layout{
     push();
 
     // Scroll among Works
-    if(this.firstPage){
+    // if(this.firstPage){
       // Display
       // Yellow Text Box
-      fill(253, 221, 107);
+      fill(42);
       rect(this.scrollX, this.scrollY, this.scrollWidth, this.scrollHeight);
       // Text
-      fill(42);
-      textSize(20);
+      fill(255);
+      textSize(18);
       textAlign(CENTER, CENTER);
-      text(`>`, this.scrollX - this.scrollWidth/5, this.scrollY);
-    }
-    else{
+      text(`>`, this.scrollX, this.scrollY);
+      // Display as Inactive - aka add semi transparent layer
+      if(!this.scrollActive){
+        fill(255, 190);
+        rect(this.scrollX, this.scrollY, this.scrollWidth, this.scrollHeight);
+      }
+
+
+      // Interact
+      // Scroll Right
+      if((mouseX > this.scrollX - this.scrollWidth/2 &&
+         mouseX < this.scrollX + this.scrollWidth/2 &&
+         mouseY > this.scrollY - this.scrollHeight/2 &&
+         mouseY < this.scrollY + this.scrollHeight/2) && (mouseIsPressed) && (this.scrollActive)){
+
+             // Scroll Page
+             // if(this.scrollActive){
+               this.firstPage = false;
+               this.scrollActive = false;
+               this.scroll2Active = true;
+             // }
+
+            // this.scrolled = true;
+      }
+    // }
+    // else{
       // Display
       // Yellow Text Box
-      fill(253, 221, 107);
+      fill(42);
       rect(this.scrollX2, this.scrollY, this.scrollWidth, this.scrollHeight);
       // Text
-      fill(42);
-      textSize(20);
+      fill(255);
+      textSize(18);
       textAlign(CENTER, CENTER);
-      text(`<`, this.scrollX2 + this.scrollWidth/5, this.scrollY);
+      text(`<`, this.scrollX2, this.scrollY);
+
+      // Display as Inactive - aka add semi transparent layer
+      if(!this.scroll2Active){
+        fill(255, 190);
+        rect(this.scrollX2, this.scrollY, this.scrollWidth, this.scrollHeight);
+      }
+
+      // Scroll Left
+      if((mouseX > this.scrollX2 - this.scrollWidth/2 &&
+         mouseX < this.scrollX2 + this.scrollWidth/2 &&
+         mouseY > this.scrollY - this.scrollHeight/2 &&
+         mouseY < this.scrollY + this.scrollHeight/2) && (mouseIsPressed) && (this.scroll2Active)){
+
+           // Scroll Page
+           // Scroll Page
+           // if(this.scroll2Active){
+             this.firstPage = true;
+             this.scrollActive = true;
+             this.scroll2Active = false;
+         //   }
+         // // }
+          // this.scrolled = true;
+      // }
     }
 
 
     pop();
 
-    // Interact
-    // Scroll Right
-    if((mouseX > this.scrollX - this.scrollWidth/2 &&
-       mouseX < this.scrollX + this.scrollWidth/2 &&
-       mouseY > this.scrollY - this.scrollHeight/2 &&
-       mouseY < this.scrollY + this.scrollHeight/2) && (mouseIsPressed)){
+    // // Interact
+    // // Scroll Right
+    // if((mouseX > this.scrollX - this.scrollWidth/2 &&
+    //    mouseX < this.scrollX + this.scrollWidth/2 &&
+    //    mouseY > this.scrollY - this.scrollHeight/2 &&
+    //    mouseY < this.scrollY + this.scrollHeight/2) && (mouseIsPressed)){
+    //
+    //        // Scroll Page
+    //       this.firstPage = false;
+    // }
+    //
+    // // Scroll Left
+    // if((mouseX > this.scrollX2 - this.scrollWidth/2 &&
+    //    mouseX < this.scrollX2 + this.scrollWidth/2 &&
+    //    mouseY > this.scrollY - this.scrollHeight/2 &&
+    //    mouseY < this.scrollY + this.scrollHeight/2) && (mouseIsPressed)){
+    //
+    //      // Scroll Page
+    //     // if(mouseIsPressed){
+    //     this.firstPage = true;
+    //    // }
+    //     // this.scrolled = true;
+    // }
 
-         // Scroll Page
-        this.firstPage = false;
-        // this.scrolled = true;
+  }
+
+  animate(){
+    if(this.scrolled){
+
     }
-
-    // Scroll Left
-    if((mouseX > this.scrollX2 - this.scrollWidth/2 &&
-       mouseX < this.scrollX2 + this.scrollWidth/2 &&
-       mouseY > this.scrollY - this.scrollHeight/2 &&
-       mouseY < this.scrollY + this.scrollHeight/2) && (mouseIsPressed)){
-
-         // Scroll Page
-        this.firstPage = true;
-        // this.scrolled = true;
-    }
-
   }
 
   display(){
@@ -346,10 +402,10 @@ class Layout{
       }
 
       // PLus Button
-      fill(253, 221, 107);
+      fill(42);
       ellipse(this.plusButtonX3, this.plusButtonY3, this.plusButtonSize3);
       // PLus Button Text
-      fill(42);
+      fill(255);
       textAlign(CENTER, CENTER);
       textSize(20);
       text(`+`, this.plusButtonX3, this.plusButtonY3);
@@ -429,11 +485,11 @@ class Layout{
       }
 
       // PLus Button
-      fill(253, 221, 107);
+      fill(42);
       ellipse(this.plusButtonX1, this.plusButtonY1, this.plusButtonSize1);
       ellipse(this.plusButtonX2, this.plusButtonY2, this.plusButtonSize2);
       // PLus Button Text
-      fill(42);
+      fill(255);
       textAlign(CENTER, CENTER);
       textSize(20);
       text(`+`, this.plusButtonX1, this.plusButtonY1);

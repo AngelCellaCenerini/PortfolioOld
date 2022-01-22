@@ -43,7 +43,7 @@ a{
 #linkedIn{
   position: absolute;
   margin-left: 20vw;
-  margin-top: 82vh;
+  margin-top: 85vh;
   visibility: visible;
 }
 #linkedIn: hover{
@@ -52,11 +52,13 @@ a{
 
 .buttons{
   position: absolute;
+  border-color: #343434;
+  border-style: solid;
   font-size: 18px;
-  background-color: #FDDD6B;
+  background-color: #FEFDF9;
   text-align: center;
   padding-top: 6px;
-  width: 120px;
+  width: 115px;
   height: 25px;
   visibility: hidden;
 }

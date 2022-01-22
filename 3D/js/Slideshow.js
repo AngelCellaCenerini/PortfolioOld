@@ -68,7 +68,7 @@ class Slideshow{
   darken(){
     // Gradually Darken Background
     this.opacity = this.opacity + this.transparency;
-    if (this.opacity >= 220){
+    if (this.opacity >= 230){
       this.transparency = 0;
     }
   }
@@ -97,13 +97,13 @@ class Slideshow{
     push();
 
     // Darkened Background
-    fill(42, this.opacity);
+    fill(30, this.opacity);
     rect(this.x, this.y, width, height);
     // Images
     image(this.currentImage, this.x, this.y);
     // Slideshow Icons
     // 'X' Icon
-    fill(253, 221, 107, this.opacity);
+    fill(255, this.opacity);
     ellipse(this.iconX, this.iconY, this.iconSize);
     fill(42);
     textFont(`Courier`);
