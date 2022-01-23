@@ -111,15 +111,18 @@ class Layout{
     // this.transparency = 20;
   }
 
-  update(slideshow){
+  update(slideshow, animation){
     // Check if page is active (aka Slideshow is not active)
     if(this.active){
       this.addInfo();
       this.activateSlideshow(slideshow);
-      this.scroll();
-      this.animate();
+      this.scroll(animation);
+      // this.activate(animation);
+      if(this.scrolled){
+        this.timer++;
+      }
     }
-    this.display();
+    this.display(animation);
     // this.fadingEffect();
   }
 
@@ -258,7 +261,7 @@ class Layout{
     }
   }
 
-  scroll(){
+  scroll(animation){
     push();
 
     // Scroll among Works
@@ -287,11 +290,17 @@ class Layout{
          mouseY < this.scrollY + this.scrollHeight/2) && (mouseIsPressed) && (this.scrollActive)){
 
              // Scroll Page
-             // if(this.scrollActive){
+             if(this.scrollActive){
                this.firstPage = false;
+               this.scrolled = true;
                this.scrollActive = false;
                this.scroll2Active = true;
-             // }
+               // Reset Animation
+               animation.reset();
+               this.activate(animation)
+               // Reset Play Button
+               animation.activePlayButton = false;
+             }
 
             // this.scrolled = true;
       }
@@ -321,11 +330,17 @@ class Layout{
 
            // Scroll Page
            // Scroll Page
-           // if(this.scroll2Active){
+           if(this.scroll2Active){
              this.firstPage = true;
+             this.scrolled = true;
              this.scrollActive = true;
              this.scroll2Active = false;
-         //   }
+             // Reset Animation
+             animation.reset();
+             this.activate(animation);
+             // Reset Play Button
+             animation.activePlayButton = false;
+           }
          // // }
           // this.scrolled = true;
       // }
@@ -360,13 +375,34 @@ class Layout{
 
   }
 
-  animate(){
-    if(this.scrolled){
+  activate(animation){
+    // if(this.scrolled){
+    //   // this.timer++;
+    //   animation.active = true;
+    //   animation.update();
+    //   if(this.timer > 1*60){
+    //     // Reset Scrolling
+    //     this.scrolled = false;
+    //     // // Change Page
+    //     // if(this.firstPage){
+    //     //   this.firstPage = false;
+    //     // }
+    //     // else{
+    //     //   this.firstPage = true;
+    //     // }
+    //     // Reset Animation
+    //     animation.active = false;
+    //     animation.reset();
+    //   }
+    // }
 
-    }
+    // Time
+    // if(this.timer > 1*60){
+    //   animation.active = false;
+    // }
   }
 
-  display(){
+  display(animation){
 
     push();
 
@@ -412,14 +448,17 @@ class Layout{
 
       // Check if State features Play Button
       if (this.interactive){
-        // Play Button
-        // Button 3
-        // document.getElementById("button3").style.visibility = `visible`;
-        // document.getElementById("button3").style.left = `${0 + this.buttonX3 - 60}px`;
-        // document.getElementById("button3").style.top = `${0 + this.buttonY3 - 15}px`;
-        // Hide Other Buttons
-        document.getElementById("button1").style.visibility = `hidden`;
-        document.getElementById("button2").style.visibility = `hidden`;
+        // Check Animation Timer
+        if(animation.activePlayButton){
+          // Play Button
+          // Button 3
+          // document.getElementById("button3").style.visibility = `visible`;
+          // document.getElementById("button3").style.left = `${0 + this.buttonX3 - 60}px`;
+          // document.getElementById("button3").style.top = `${0 + this.buttonY3 - 15}px`;
+          // Hide Other Buttons
+          document.getElementById("button1").style.visibility = `hidden`;
+          document.getElementById("button2").style.visibility = `hidden`;
+        }
       }
 
     }
@@ -448,17 +487,20 @@ class Layout{
 
       // Check if State features Play Button
       if (this.interactive){
-        // Play Button
-        // Button 1
-        document.getElementById("button1").style.visibility = `visible`;
-        document.getElementById("button1").style.left = `${0 + this.buttonX1 - 60}px`;
-        document.getElementById("button1").style.top = `${0 + this.buttonY1 - 15}px`;
-        // Button 2
-        document.getElementById("button2").style.visibility = `visible`;
-        document.getElementById("button2").style.left = `${0 + this.buttonX2 - 60}px`;
-        document.getElementById("button2").style.top = `${0 + this.buttonY2 - 15}px`;
-        // Hide Other Button
-        document.getElementById("button3").style.visibility = `hidden`;
+        // Check Animation Timer
+        if(animation.activePlayButton){
+          // Play Button
+          // Button 1
+          document.getElementById("button1").style.visibility = `visible`;
+          document.getElementById("button1").style.left = `${0 + this.buttonX1 - 60}px`;
+          document.getElementById("button1").style.top = `${0 + this.buttonY1 - 15}px`;
+          // Button 2
+          document.getElementById("button2").style.visibility = `visible`;
+          document.getElementById("button2").style.left = `${0 + this.buttonX2 - 60}px`;
+          document.getElementById("button2").style.top = `${0 + this.buttonY2 - 15}px`;
+          // Hide Other Button
+          document.getElementById("button3").style.visibility = `hidden`;
+        }
       }
 
       // Description 1

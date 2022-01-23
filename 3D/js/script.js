@@ -12,6 +12,8 @@ author, and this description to match your project!
 let layout = undefined;
 // Slideshow
 let slideshow = undefined;
+// Animation Effect
+let animation = undefined;
 
 // Images
 let shark1 = undefined;
@@ -60,7 +62,7 @@ function setup() {
   imageMode(CENTER);
 
   // Layout
-  let x1 = width/4 - 30;
+  let x1 = width/4 - 50;
   let y1 = height/2 - 50;
   let x2 = 3*width/4 - 80;
   let y2 = height/2 - 50;
@@ -77,6 +79,15 @@ function setup() {
   let iconX = width/12;
   let iconY = -20;
   slideshow = new Slideshow(x, y, iconX, iconY);
+
+  // Animation Effect
+  x1 = width/4;
+  y1 = height/3;
+  x2 = 3*width/4;
+  y2 = height/3;
+  let animationWidth = width/2;
+  let animationHeight = height;
+  animation = new Animation(x1, y1, x2, y2, animationWidth, animationHeight);
 }
 
 
@@ -89,7 +100,7 @@ function draw() {
   background(254, 253, 249);
 
   // Display Page
-  layout.update(slideshow);
+  layout.update(slideshow, animation);
 
   // Slideshow
   slideshow.update(layout);
@@ -110,6 +121,9 @@ function draw() {
     navigationMenu.style.visibility = `visible`;
     linkedInIcon.style.visibility = `visible`;
   }
+
+  // Animation Effect
+  animation.update();
 
 }
 
