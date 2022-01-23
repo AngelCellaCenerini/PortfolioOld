@@ -62,8 +62,9 @@ class Animation {
       }
     }
 
+    // Animate Buttons
     if(this.timer > 2.6*60){
-      // Acitvate PLay Button
+      // Activate PLay Button
       this.activePlayButton = true;
     }
 
@@ -126,6 +127,6 @@ class Animation {
     this.opacity2 = 255;
     this.transparency2 = 3.5;
     this.activePlayButton = false;
-    this.update();
+    this.timer = 0;
   }
 }

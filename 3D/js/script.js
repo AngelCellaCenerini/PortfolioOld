@@ -66,7 +66,7 @@ function setup() {
   let y1 = height/2 - 50;
   let x2 = 3*width/4 - 80;
   let y2 = height/2 - 50;
-  let x3 = width/4 - 30;
+  let x3 = width/4 - 50;
   let y3 = height/2 - 50;
   let scrollX = 4*width/5 + 40;
   let scrollX2 = 4*width/5 - 25;
@@ -123,7 +123,7 @@ function draw() {
   }
 
   // Animation Effect
-  animation.update();
+  // animation.update();
 
 }
 
