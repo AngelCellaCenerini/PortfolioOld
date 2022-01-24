@@ -23,29 +23,21 @@ class Layout{
     this.y2 = y2;
     this.x3 = x3;
     this.y3 = y3;
-    this.name1 = `Sculpted Model`;
-    this.name2 = `Low Poly Diorama`;
-    this.name3 = `HardSurface & Kitbash`;
+    this.name1 = `Anatomical Study`;
+    this.name2 = `Ambience Study`;
+    this.name3 = `Character Study`;
     this.details1 = `
-    Blender
 
-    Texture
-    Paint
-
-    Substance
-    3D Painter
-
-    Unity`;
+    Digital
+    Painting`;
     this.details2 = `
-    Blender
 
-    UV
-    Coloring `;
+    Digital
+    Painting`;
     this.details3 = `
-    Blender
 
-    Substance
-    3D Painter`;
+    Digital
+    Painting`;
     // Play Button
     this.buttonX1 = x1 + 2*this.imageWidth/3 - 15;
     this.buttonY1 = y1 + 210;

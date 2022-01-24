@@ -23,29 +23,15 @@ class Layout{
     this.y2 = y2;
     this.x3 = x3;
     this.y3 = y3;
-    this.name1 = `Sculpted Model`;
-    this.name2 = `Low Poly Diorama`;
-    this.name3 = `HardSurface & Kitbash`;
+    this.name1 = `Comp_1`;
+    this.name2 = `Comp_2`;
+    this.name3 = `Comp_3`;
     this.details1 = `
-    Blender
-
-    Texture
-    Paint
-
-    Substance
-    3D Painter
-
-    Unity`;
+    `;
     this.details2 = `
-    Blender
-
-    UV
-    Coloring `;
+    `;
     this.details3 = `
-    Blender
-
-    Substance
-    3D Painter`;
+    `;
     // Play Button
     this.buttonX1 = x1 + 2*this.imageWidth/3 - 15;
     this.buttonY1 = y1 + 210;
@@ -53,7 +39,7 @@ class Layout{
     this.buttonY2 = y2 + 210;
     this.buttonX3 = x3 + 2*this.imageWidth/3 - 15;
     this.buttonY3 = y3 + 210;
-    this.interactive = true;
+    this.interactive = false;
     // More Button
     this.plusButtonX1 = x1 - this.imageWidth/3;
     this.plusButtonY1 = y1 + this.imageHeight/2;
@@ -81,18 +67,11 @@ class Layout{
     this.descriptionOpacity = 200;
     this.description = undefined;
     this.description1 = `
-    Feathered humanoid character.
-    Mythological creature interpretating
-    the unfamous behaviour of
-    the cuckoo bird species.`;
+    Coming soon. . .`;
     this.description2 = `
-    Reverse concept of the window
-    cleaner career, littered
-    with domestic (twisted) scenes.`;
+    Coming soon. . .`;
     this.description3 = `
-    Biomechanical interpretation of
-    hammerhead shark built via
-    hardsurface tools and components.`;
+    Coming soon. . .`;
     // Page
     this.firstPage = true;
     this.active = true;
@@ -110,7 +89,7 @@ class Layout{
     // Check if page is active (aka Slideshow is not active)
     if(this.active){
       this.addInfo();
-      this.activateSlideshow(slideshow);
+      // this.activateSlideshow(slideshow);
     }
     this.display(animation);
     // Include Animation Effect
@@ -340,7 +319,9 @@ class Layout{
     // Third Project
     if(!this.firstPage){
       // Image
-      image(this.image3, this.imageX3, this.imageY3, this.imageWidth, this.imageHeight);
+      // image(this.image3, this.imageX3, this.imageY3, this.imageWidth, this.imageHeight);
+      fill(90);
+      rect(this.imageX3, this.imageY3, this.imageWidth, this.imageHeight);
       // Text
       fill(42);
       // textFont(bigShoulderDisplayFont);
@@ -394,8 +375,11 @@ class Layout{
     }
     else{
       // Image
-      image(this.image1, this.imageX1, this.imageY1, this.imageWidth, this.imageHeight);
-      image(this.image2, this.imageX2, this.imageY2, this.imageWidth, this.imageHeight);
+      // image(this.image1, this.imageX1, this.imageY1, this.imageWidth, this.imageHeight);
+      // image(this.image2, this.imageX2, this.imageY2, this.imageWidth, this.imageHeight);
+      fill(90);
+      rect(this.imageX1, this.imageY1, this.imageWidth, this.imageHeight);
+      rect(this.imageX2, this.imageY2, this.imageWidth, this.imageHeight);
 
       // Text
       fill(42);
@@ -432,7 +416,7 @@ class Layout{
           document.getElementById("button3").style.visibility = `hidden`;
 
       }
-  
+
 
       // Description 1
       if (this.expanded1){
