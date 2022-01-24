@@ -9,6 +9,7 @@ author, and this description to match your project!
 */
 // Homepage
 let homepage = undefined;
+let raven = undefined;
 
 /**
 Preload Files
@@ -16,6 +17,7 @@ Preload Files
 function preload() {
 
   // Graphics
+  raven = loadImage('assets/images/raven1.gif');
 }
 
 
@@ -38,6 +40,9 @@ function setup() {
 function draw() {
 
     background(254, 253, 249);
+
+    // Display Animation
+    image(raven, 2*width/3 + 100, height/2 - 50, 120, 120);
 
     // Display
     push();
