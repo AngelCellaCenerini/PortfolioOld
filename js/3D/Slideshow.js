@@ -57,7 +57,12 @@ class Slideshow{
     this.iconY = this.iconY + this.vy;
     this.vy = this.speed;
     this.speed = this.speed - this.acceleration;
-    if(this.iconY >= height/7){
+    // if(this.iconY >= height/7){
+    //   // Stop
+    //   this.speed = 0;
+    //   this.acceleration = 0;
+    // }
+    if(this.speed <= 0){
       // Stop
       this.speed = 0;
       this.acceleration = 0;
