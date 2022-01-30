@@ -20,11 +20,13 @@ let logo1 = undefined;
 let logo2 = undefined;
 let poster1 = undefined;
 let poster2 = undefined;
+let banner1 = undefined;
 let post1 = undefined;
 let post2 = undefined;
 let post3 = undefined;
 let post4 = undefined;
 let post5 = undefined;
+let post6 = undefined;
 
 
 /**
@@ -37,11 +39,13 @@ function preload() {
   logo2 = loadImage('assets/images/Design/logo2.png');
   poster1 = loadImage('assets/images/Design/poster1.png');
   poster2 = loadImage('assets/images/Design/poster2.png');
+  banner1 = loadImage('assets/images/Design/banner1.png');
   post1 = loadImage('assets/images/Design/post1.png');
   post2 = loadImage('assets/images/Design/post2.png');
   post3 = loadImage('assets/images/Design/post3.png');
   post4 = loadImage('assets/images/Design/post4.png');
   post5 = loadImage('assets/images/Design/post5.png');
+  post6 = loadImage('assets/images/Design/post6.png');
 
 }
 

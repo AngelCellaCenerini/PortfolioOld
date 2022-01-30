@@ -70,7 +70,7 @@ function setup() {
   let y3 = height/2 - 50;
   let scrollX = 4*width/5 + 40;
   let scrollX2 = 4*width/5 - 25;
-  let scrollY = 44*height/50 + 10;
+  let scrollY = 44*height/50 + 2;
   layout = new Layout(x1, y1, x2, y2, x3, y3, scrollX, scrollX2, scrollY);
 
   // Slideshow(s)

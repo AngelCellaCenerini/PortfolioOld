@@ -254,7 +254,7 @@ class Layout{
 
     // Scroll among Works
       // Display
-      // Yellow Text Box
+      // Text Box
       fill(42);
       rect(this.scrollX, this.scrollY, this.scrollWidth, this.scrollHeight);
       // Text
@@ -264,7 +264,7 @@ class Layout{
       text(`>`, this.scrollX, this.scrollY);
       // Display as Inactive - aka add semi transparent layer
       if(!this.scrollActive){
-        fill(255, 190);
+        fill(255, 200);
         rect(this.scrollX, this.scrollY, this.scrollWidth, this.scrollHeight);
       }
 
@@ -293,7 +293,7 @@ class Layout{
       }
 
       // Display
-      // Yellow Text Box
+      // Text Box
       fill(42);
       rect(this.scrollX2, this.scrollY, this.scrollWidth, this.scrollHeight);
       // Text
@@ -304,7 +304,7 @@ class Layout{
 
       // Display as Inactive - aka add semi transparent layer
       if(!this.scroll2Active){
-        fill(255, 190);
+        fill(255, 200);
         rect(this.scrollX2, this.scrollY, this.scrollWidth, this.scrollHeight);
       }
 

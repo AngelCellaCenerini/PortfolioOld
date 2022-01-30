@@ -25,7 +25,7 @@ div {
   justify-content:space-around;
   width: 50vw;
   margin-left: 25vw;
-  margin-top: 88vh;
+  margin-top: 87vh;
   visibility: visible;
   font-size: 13.5px;
 }
@@ -43,7 +43,7 @@ a{
 #linkedIn{
   position: absolute;
   margin-left: 20vw;
-  margin-top: 85vh;
+  margin-top: 84vh;
   visibility: visible;
 }
 #linkedIn: hover{

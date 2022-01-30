@@ -39,16 +39,14 @@ class Slideshow{
         this.images = [logo1, logo2];
       }
       else if(layout.second){
-        this.images = [poster2];
+        this.images = [poster2, banner1];
       }
       else if(layout.third){
-        this.images = [post1, post2, post3, post4];
+        this.images = [post1, post2, post3, post4, post6];
       }
 
       // Assign Image
       this.currentImage = this.images[this.currentIndex];
-      console.log(layout.first);
-      console.log(layout.third);
   }
 
   move(){
@@ -57,7 +55,8 @@ class Slideshow{
     this.iconY = this.iconY + this.vy;
     this.vy = this.speed;
     this.speed = this.speed - this.acceleration;
-    if(this.iconY >= height/7){
+    // Check Progress
+    if(this.speed <= 0){
       // Stop
       this.speed = 0;
       this.acceleration = 0;
@@ -92,7 +91,7 @@ class Slideshow{
     }
   }
 
-  display(layoutlayout){
+  display(layout){
 
     push();
 
@@ -112,14 +111,12 @@ class Slideshow{
     text('X', this.iconX, this.iconY);
 
     // Arrow Icon
-    if(!layout.second){
-      fill(253, 221, 107, 0);
-      textSize(50);
-      rect(this.arrowX, this.arrowY, this.iconSize);
-      fill(254, 253, 249, this.opacity);
-      textFont(`Courier`);
-      text(`>`, this.arrowX, this.arrowY);
-    }
+    fill(253, 221, 107, 0);
+    textSize(50);
+    rect(this.arrowX, this.arrowY, this.iconSize);
+    fill(254, 253, 249, this.opacity);
+    textFont(`Courier`);
+    text(`>`, this.arrowX, this.arrowY);
 
     pop();
 

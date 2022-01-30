@@ -24,7 +24,7 @@ class Layout{
     this.x3 = x3;
     this.y3 = y3;
     this.name1 = `CP3 Logo`;
-    this.name2 = `Promotional Earrings Poster`;
+    this.name2 = `Banners & Posters`;
     this.name3 = `Social Media Posts`;
     this.details1 = `
 
@@ -78,9 +78,9 @@ class Layout{
     an immediate understanding of
     the initiative's mission.`;
     this.description2 = `
-    Designed to promote earrings
-    made out of HDPE recycled plastic
-    by the CP3 initiative. `;
+    Collection of selected designs
+    branding and promoting
+    products and events. `;
     this.description3 = `
     Collection of selected designs
     branding and promoting CP3's
